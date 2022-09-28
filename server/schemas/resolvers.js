@@ -48,6 +48,21 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+    addMemory: async (parent, args, context) => {
+      if (context.user) {
+        const memory = await Memory.create({ ...args, username: context.user.username });
+
+        await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { memories: memory._id } },
+          { new: true }
+        );
+
+        return memory;
+      }
+
+      throw new AuthenticationError('You need to be logged in!');
+    },
 }
 };
 
