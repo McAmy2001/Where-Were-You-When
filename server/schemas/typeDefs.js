@@ -13,6 +13,12 @@ const typeDefs = gql`
     email: String
   }
 
+  type Memory {
+    _id: ID
+    memoryText: String
+    username: String
+  }
+
   type Query {
     users: [User]
   }
