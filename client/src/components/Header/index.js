@@ -1,15 +1,15 @@
-import React from 'react';
-import Nav from '../Nav'
+import React from "react";
+import Nav from "../Nav";
 
 function Header() {
   return (
-    <div>
-      Here's the Header
+    <header>
+      <h1>Where Were You When</h1>
       <div>
         <Nav />
       </div>
-    </div>
-  )
+    </header>
+  );
 }
 
 export default Header;
