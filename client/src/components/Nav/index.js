@@ -1,18 +1,32 @@
 import React from "react";
 
-function Nav() {
+function Nav(props) {
+  const {
+    pageList = [],
+    setActivePage,
+    activePageSelected,
+    setPageSelected,
+    activePage,
+  } = props;
+
   return (
     <nav>
       <ul>
-        <li>
-          <a href="#login">Log In/Sign Up</a>
-        </li>
-        <li>
-          <a href="#profile">My Profile</a>
-        </li>
-        <li>
-          <a href="#logout">Logout</a>
-        </li>
+        {pageList.map((page) => (
+          <li
+            key={page}
+            className={`${activePage === page && activePageSelected}`}
+          >
+            <span
+              onClick={() => {
+                setActivePage(page);
+                setPageSelected(true);
+              }}
+            >
+              {page}
+            </span>
+          </li>
+        ))}
       </ul>
     </nav>
   );
