@@ -20,7 +20,7 @@
     "url": "https://github.com/McAmy2001/Where-Were-You-When/issues"
   },
   "homepage": "https://github.com/McAmy2001/Where-Were-You-When#readme",
-  "dependencies": {
+  "devDependencies": {
     "concurrently": "^7.4.0"
   }
 }
