@@ -8,7 +8,7 @@ const resolvers = {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
           .select('-__v -password')
-          ;
+          .populate('memories');
 
         return userData;
       }
@@ -18,6 +18,11 @@ const resolvers = {
     users: async () => {
       return User.find()
         .select('-__v -password')
+        .populate('memories');
+    },
+    memories: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return Memory.find(params).sort({ memoryYear: -1 });
     }
   },
   Mutation: {
