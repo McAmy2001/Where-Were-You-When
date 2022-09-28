@@ -1,11 +1,12 @@
-import React from 'react';
+import React from "react";
 
 function Main() {
   return (
     <div>
-      Here's the Main component
+      <h2>What happened today in history?</h2>
+      {/* pull in API code here */}
     </div>
-  )
+  );
 }
 
 export default Main;
