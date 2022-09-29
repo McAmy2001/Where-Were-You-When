@@ -12,15 +12,15 @@ const memorySchema = new Schema(
             required: true
         },
         memoryYear: {
-            type: Int,
+            type: Number,
             required: 'Please enter the year of your memory!'
         },
         memoryMonth: {
-            type: Int,
+            type: Number,
             required: 'Please enter the month of your memory!'
         },
         memoryDate: {
-            type: Int,
+            type: Number,
             required: 'Please enter the date of your memory!'
         }
     }
