@@ -18,6 +18,7 @@ const Home = () => {
     <main>
       <Header />
       <Main />
+      <Footer />
     </main>
   );
 };
