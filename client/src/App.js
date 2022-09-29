@@ -1,8 +1,24 @@
 import React, { useState } from "react";
+import {
+  ApolloProvider,
+  ApolloClient,
+  InMemoryCache,
+  createHttpLink,
+} from "@apollo/client";
+
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Page from "./components/Page";
+
+const httpLink = createHttpLink({
+  uri: "/graphql",
+});
+
+const client = new ApolloClient({
+  link: httpLink,
+  cache: new InMemoryCache(),
+});
 
 function App() {
   const [pageList] = useState([
@@ -18,21 +34,23 @@ function App() {
   const [activePageSelected, setPageSelected] = useState(false);
 
   return (
-    <div>
-      <Header
-        pageList={pageList}
-        activePage={activePage}
-        setActivePage={setActivePage}
-        activePageSelected={activePageSelected}
-        setPageSelected={setPageSelected}
-      />
+    <ApolloProvider client={client}>
+      <div>
+        <Header
+          pageList={pageList}
+          activePage={activePage}
+          setActivePage={setActivePage}
+          activePageSelected={activePageSelected}
+          setPageSelected={setPageSelected}
+        />
 
-      <main>
-        <Page activePage={activePage} />
-      </main>
+        <main>
+          <Page activePage={activePage} />
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </ApolloProvider>
   );
 }
 

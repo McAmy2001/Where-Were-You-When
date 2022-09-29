@@ -1,29 +1,34 @@
 import React from "react";
-import Nav from "../Nav";
+import { Link } from "react-router-dom";
 
-function Header(props) {
-  const {
-    setActivePage,
-    pageList,
-    activePageSelected,
-    setPageSelected,
-    activePage,
-  } = props;
+import Auth from "../../utils/auth";
+
+const Header = () => {
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
 
   return (
     <header>
       <h1>Where Were You When</h1>
-      <div>
-        <Nav
-          activePage={activePage}
-          setActivePage={setActivePage}
-          pageList={pageList}
-          activePageSelected={activePageSelected}
-          setPageSelected={setPageSelected}
-        />
-      </div>
+      <nav>
+        {Auth.loggedIn() ? (
+          <>
+            <Link to="/profile">Profile</Link>
+            <a href="/" onClick={logout}>
+              Logout
+            </a>
+          </>
+        ) : (
+          <>
+            <Link to="/login">Login</Link>
+            <Link to="/signup">Signup</Link>
+          </>
+        )}
+      </nav>
     </header>
   );
-}
+};
 
 export default Header;
