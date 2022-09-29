@@ -11,7 +11,10 @@ const Header = () => {
 
   return (
     <header>
-      <h1>Where Were You When</h1>
+      <Link to="/">
+        {" "}
+        <h1>Where Were You When</h1>
+      </Link>
       <nav>
         {Auth.loggedIn() ? (
           <>

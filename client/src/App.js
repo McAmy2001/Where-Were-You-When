@@ -29,20 +29,12 @@ function App() {
     "Logout",
   ]);
 
-  const [activePage, setActivePage] = useState(pageList[0]);
-
-  const [activePageSelected, setPageSelected] = useState(false);
+  const [activePage] = useState(pageList[0]);
 
   return (
     <ApolloProvider client={client}>
       <div>
-        <Header
-          pageList={pageList}
-          activePage={activePage}
-          setActivePage={setActivePage}
-          activePageSelected={activePageSelected}
-          setPageSelected={setPageSelected}
-        />
+        <Header />
 
         <main>
           <Page activePage={activePage} />
