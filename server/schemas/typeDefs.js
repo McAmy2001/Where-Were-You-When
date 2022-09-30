@@ -35,11 +35,13 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addMemory(
-      memoryText: String!
-      memoryYear: Int!
-      memoryMonth: Int!
-      memoryDate: Int!
+      memoryText: String!,
+      memoryYear: Int!,
+      memoryMonth: Int!,
+      memoryDate: Int!,
     ): Memory
+    updateMemory(_id:ID!): Memory
+    deleteMemory(_id:ID!): 
   }
 `;
 

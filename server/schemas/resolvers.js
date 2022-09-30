@@ -74,6 +74,23 @@ const resolvers = {
 
       throw new AuthenticationError("You need to be logged in!");
     },
+    updateMemory: async (parent, args, context) => {
+      if (context.user) 
+      // should this be context.user or context.memory? 
+      {
+        const memory = await Memory.findByIdAndUpdate({
+          // args? user._id? memory._id? $push? $map?
+
+          
+          
+      });
+
+      return memory;
+      }
+
+      throw new AuthenticationError("You need to be logged in!");
+      
+    }
   },
 };
 
