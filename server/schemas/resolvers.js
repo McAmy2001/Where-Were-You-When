@@ -77,20 +77,31 @@ const resolvers = {
     },
     updateMemory: async (parent, args, context) => {
       if (context.user) 
-      // should this be context.user or context.memory? 
       {
-        const memory = await Memory.findByIdAndUpdate({
-          // args? user._id? memory._id? $push? $map?
-
-          
-          
-      });
+        const memory = await Memory.findByIdAndUpdate(
+           {_id: context.memory._id},
+           {username: context.user._id},
+           { $map: { ...args }}, //can I do this?  doesn't look right
+           { new: true },             
+      );
 
       return memory;
       }
 
       throw new AuthenticationError("You need to be logged in!");
       
+    },
+    deleteMemory: async (parent, { _id }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findByIdAndUpdate(
+          {_id: user._id},
+          { $pull: { memory: _id }},
+          { new: true }
+        ).populate('memory');
+
+        return updatedUser;
+      }
+      throw new AuthenticationError('You need to be logged in!');
     }
   },
 };
