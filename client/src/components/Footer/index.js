@@ -5,8 +5,8 @@ function Footer() {
     <footer>
       <div>
         &copy; 2022 Kayla Backus, Angie Gustafson, Amy McCabe, and Kristy
+        Nerhaugen
       </div>
-      Nerhaugen
     </footer>
   );
 }
