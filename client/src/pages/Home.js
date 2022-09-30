@@ -5,9 +5,8 @@ import Footer from "../components/Footer";
 
 import Auth from "../utils/auth";
 
-// impory queries once they're set up
-// import { useQuery } from '@apollo/client';
-// import { } from '../utils/queries';
+import { useQuery } from "@apollo/client";
+import {} from "../utils/queries";
 
 const Home = () => {
   // add useQuery hook here

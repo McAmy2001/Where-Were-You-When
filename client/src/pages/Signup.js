@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-// import mutations once tehy are added
-// import { useMutation } from '@apollo/client';
-// import { ADD_USER } from '../utils/mutations';
+
+import { useMutation } from "@apollo/client";
+import { ADD_USER } from "../utils/mutations";
 
 import Auth from "../utils/auth";
 
