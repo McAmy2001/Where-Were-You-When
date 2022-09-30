@@ -25,10 +25,13 @@ const resolvers = {
         .select('-__v -password')
         .populate('memory');
     },
-    memory: async (parent, { username }) => {
+    memories: async (parent, { username }) => {
       const params = username ? { username } : {};
       return Memory.find(params).sort({ memoryYear: -1 });
     },
+    memory: async (parent, { _id }) => {
+      return Memory.findOne({ _id });
+    }
   },
   Mutation: {
     addUser: async (parent, args) => {
