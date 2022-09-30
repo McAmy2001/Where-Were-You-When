@@ -25,7 +25,10 @@ const typeDefs = gql`
   type Query {
     me: User
     users: [User]
-    memory(memoryMonth: Int!, memoryDate: Int!, memoryYear: Int!): Memory
+    user(username: String!): User
+    memories(username: String): [Memory]
+    memory(_id:ID!): Memory
+
   }
 
   type Mutation {

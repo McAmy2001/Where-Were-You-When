@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 export const QUERY_MEMORIES = gql`
-  query memory($username: String) {
+  query memories($username: String) {
     memory(username: $username) {
       _id
       memoryText
