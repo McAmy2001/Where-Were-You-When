@@ -22,6 +22,9 @@ const resolvers = {
       const params = username ? { username } : {};
       return Memory.find(params).sort({ memoryYear: -1 });
     },
+    everyMemory: async () => {
+      return Memory.find().select("-__v");
+    }
   },
   Mutation: {
     addUser: async (parent, args) => {

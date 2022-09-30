@@ -26,6 +26,7 @@ const typeDefs = gql`
     me: User
     users: [User]
     memory(memoryMonth: Int!, memoryDate: Int!): Memory
+    everyMemory: [Memory]
   }
 
   type Mutation {
@@ -37,6 +38,7 @@ const typeDefs = gql`
       memoryMonth: Int!
       memoryDate: Int!
     ): Memory
+    updateUser(username: String!): User
   }
 `;
 
