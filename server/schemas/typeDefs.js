@@ -26,7 +26,7 @@ const typeDefs = gql`
     me: User
     users: [User]
     user(username: String!): User
-    memories(username: String, memoryMonth: Int, memoryDate: Int): [Memory]
+    memories(username: String): [Memory]
     memory(_id:ID!): Memory
 
   }

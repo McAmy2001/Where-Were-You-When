@@ -32,6 +32,7 @@ const resolvers = {
     memory: async (parent, { _id }) => {
       return Memory.findOne({ _id });
     }
+
   },
   Mutation: {
     addUser: async (parent, args) => {
