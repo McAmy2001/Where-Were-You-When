@@ -78,14 +78,14 @@ const resolvers = {
     updateMemory: async (parent, args, context) => {
       if (context.user) 
       {
-        const memory = await Memory.findByIdAndUpdate(
+        const updatedMemory = await Memory.findByIdAndUpdate(
            {_id: context.memory._id},
            {username: context.user._id},
            { $map: { args }}, //can I do this?  doesn't look right
            { new: true },             
       );
 
-      return memory;
+      return updatedMemory;
       }
 
       throw new AuthenticationError("You need to be logged in!");
