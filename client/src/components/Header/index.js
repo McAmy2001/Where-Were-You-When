@@ -1,15 +1,37 @@
-import React from 'react';
-import Nav from '../Nav'
+import React from "react";
+import { Link } from "react-router-dom";
 
-function Header() {
+import Auth from "../../utils/auth";
+
+const Header = () => {
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
+
   return (
-    <div>
-      Here's the Header
-      <div>
-        <Nav />
-      </div>
-    </div>
-  )
-}
+    <header>
+      <Link to="/">
+        {" "}
+        <h1>Where Were You When</h1>
+      </Link>
+      <nav>
+        {Auth.loggedIn() ? (
+          <>
+            <Link to="/profile">Profile</Link>
+            <a href="/" onClick={logout}>
+              Logout
+            </a>
+          </>
+        ) : (
+          <>
+            <Link to="/login">Login</Link>
+            <Link to="/signup">Signup</Link>
+          </>
+        )}
+      </nav>
+    </header>
+  );
+};
 
 export default Header;
