@@ -41,7 +41,6 @@ const typeDefs = gql`
       memoryDate: Int!,
     ): Memory
     updateMemory(_id:ID!): Memory
-    deleteMemory(_id:ID!): 
   }
 `;
 
