@@ -18,7 +18,12 @@ const resolvers = {
     users: async () => {
       return User.find()
         .select('-__v -password')
-        .populate('memories');
+        .populate('memory');
+    },
+    user: async (parent, { username }) => {
+      return User.findOne({ username })
+        .select('-__v -password')
+        .populate('memory');
     },
     memories: async (parent, { username }) => {
       const params = username ? { username } : {};
