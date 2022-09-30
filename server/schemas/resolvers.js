@@ -81,7 +81,7 @@ const resolvers = {
         const memory = await Memory.findByIdAndUpdate(
            {_id: context.memory._id},
            {username: context.user._id},
-           { $map: { ...args }}, //can I do this?  doesn't look right
+           { $map: { args }}, //can I do this?  doesn't look right
            { new: true },             
       );
 
