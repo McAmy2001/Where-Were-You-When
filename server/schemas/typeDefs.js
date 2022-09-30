@@ -1,17 +1,16 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
+  type Auth {
+    token: ID!
+    user: User
+  }
 
-    type Auth {
-        token: ID!
-        user: User
-    }
-    
   type User {
     _id: ID
     username: String
     email: String
-    memories: [Memory]
+    memory: [Memory]
   }
 
   type Memory {
@@ -32,10 +31,13 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addMemory(memoryText: String!, memoryYear: Int!, memoryMonth: Int!, memoryDate: Int!): Memory
+    addMemory(
+      memoryText: String!
+      memoryYear: Int!
+      memoryMonth: Int!
+      memoryDate: Int!
+    ): Memory
   }
-
 `;
-
 
 module.exports = typeDefs;
