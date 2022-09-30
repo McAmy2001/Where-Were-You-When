@@ -1,6 +1,7 @@
 import React from "react";
 import History from "../components/History";
 import Memory from "../components/Memory";
+import MemoryInput from "../components/MemoryInput";
 
 import Auth from "../utils/auth";
 
@@ -16,9 +17,14 @@ const Home = () => {
 
   return (
     <main>
-      <History />
+      {!loggedIn && (
+        <div>
+          <History />
+        </div>
+      )}
       {loggedIn ? (
         <div>
+          <MemoryInput />
           <Memory memory={memory} />
         </div>
       ) : null}
