@@ -23,9 +23,12 @@ const Login = (props) => {
     event.preventDefault();
 
     try {
+      console.log("Before log in");
       const { data } = await login({
-        variables: { ...formState },
+        variables: { ...formState }
       });
+      console.log("After login");
+      console.log(data);
 
       Auth.login(data.login.token);
     } catch (e) {
