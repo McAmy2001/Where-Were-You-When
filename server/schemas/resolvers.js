@@ -31,8 +31,11 @@ const resolvers = {
     },
     memory: async (parent, { _id }) => {
       return Memory.findOne({ _id });
-    }
 
+    }
+    everyMemory: async () => {
+      return Memory.find().select("-__v");
+    }
   },
   Mutation: {
     addUser: async (parent, args) => {
