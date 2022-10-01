@@ -1,6 +1,9 @@
 import React from "react";
 import { Navigate, useParams } from "react-router-dom";
 
+import Memory from "../components/Memory";
+import MemoryInput from "../components/MemoryInput";
+
 // import Queries and Mutations once they're set up
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_USER, QUERY_ME, QUERY_MEMORIES } from "../utils/queries";
@@ -17,6 +20,8 @@ const Profile = (props) => {
   });
 
   const user = data?.me || data?.user || {};
+
+  const memory = data?.memory || data?.memory || {};
 
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     return <Navigate to="/profile:username" />;
@@ -45,11 +50,13 @@ const Profile = (props) => {
         </h2>
       </div>
       <div>
-        <p>Form to input new memory will go here</p>
+        <MemoryInput />
       </div>
 
       <div>
-        <p>User's memory list will go here </p>
+        <div>
+          <Memory memory={memory} title={`${user.username}'s Memories`} />
+        </div>
       </div>
     </div>
   );
