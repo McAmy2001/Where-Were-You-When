@@ -4,10 +4,9 @@ import { Navigate, useParams } from "react-router-dom";
 import Memory from "../components/Memory";
 import MemoryInput from "../components/MemoryInput";
 
-// import Queries and Mutations once they're set up
-import { useQuery, useMutation } from "@apollo/client";
-import { QUERY_USER, QUERY_ME, QUERY_MEMORIES } from "../utils/queries";
-import {} from "../utils/mutations";
+// import Queries
+import { useQuery } from "@apollo/client";
+import { QUERY_USER, QUERY_ME } from "../utils/queries";
 
 import Auth from "../utils/auth";
 
@@ -40,8 +39,6 @@ const Profile = (props) => {
     );
   }
 
-  // need to set up add memory button/form
-
   return (
     <div>
       <div>
@@ -55,6 +52,7 @@ const Profile = (props) => {
 
       <div>
         <div>
+          <h2>My Memories</h2>
           <Memory memory={memory} title={`${user.username}'s Memories`} />
         </div>
       </div>

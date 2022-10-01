@@ -9,7 +9,6 @@ const MemoryInput = () => {
   const [memoryYear, setYear] = useState("");
   const [memoryDate, setDate] = useState("");
   const [memoryMonth, setMonth] = useState("");
-  const [characterCount, setCharacterCount] = useState(0);
 
   const [addMemory, { error }] = useMutation(ADD_MEMORY, {
     update(cache, { data: { addMemory } }) {
@@ -34,7 +33,6 @@ const MemoryInput = () => {
   const handleChange = (event) => {
     if (event.target.value.length >= 1) {
       setText(event.target.value);
-      setCharacterCount(event.target.value.length);
     }
     if (memoryYear.value.length === 4) {
       setYear(event.target.value);
@@ -52,11 +50,10 @@ const MemoryInput = () => {
 
     try {
       await addMemory({
-        variables: { memoryText },
+        variables: { memoryText, memoryDate, memoryMonth, memoryYear },
       });
 
       setText("");
-      setCharacterCount(0);
     } catch (e) {
       console.error(e);
     }
@@ -64,42 +61,48 @@ const MemoryInput = () => {
 
   return (
     <div>
-      <p
-        className={`m-0 ${characterCount === 280 || error ? "text-error" : ""}`}
-      >
-        Character Count: {characterCount}/280
-        {error && <span className="ml-2">Something went wrong.</span>}
-      </p>
+      <h2>Add a new memory:</h2>
       <form onSubmit={handleFormSubmit}>
-        <label for="month">Enter month</label>
-        <input
-          placeholder="Enter month"
-          type="number"
-          id="month"
-          min="1"
-          max="31"
-          value={memoryMonth}
-          onChange={handleChange}
-        ></input>
-        <input
-          placeholder="Enter day"
-          type="number"
-          min="1"
-          max="31"
-          value={memoryDate}
-          onChange={handleChange}
-        ></input>
-        <input
-          placeholder="Enter year"
-          type="number"
-          value={memoryYear}
-          onChange={handleChange}
-        ></input>
-        <textarea
-          placeholder="Enter a memory here."
-          value={memoryText}
-          onChange={handleChange}
-        ></textarea>
+        <label for="month">
+          Month:
+          <input
+            type="number"
+            id="month"
+            min="1"
+            max="31"
+            value={memoryMonth}
+            onChange={handleChange}
+          />
+        </label>
+        <label for="day">
+          Day:
+          <input
+            type="number"
+            id="day"
+            min="1"
+            max="31"
+            value={memoryDate}
+            onChange={handleChange}
+          />
+        </label>
+        <label for="year">
+          Year:
+          <input
+            type="number"
+            id="year"
+            value={memoryYear}
+            onChange={handleChange}
+          />
+        </label>
+        <label for="memory">
+          My memory:
+          <textarea
+            placeholder="Enter your memory here."
+            id="memory"
+            value={memoryText}
+            onChange={handleChange}
+          />
+        </label>
         <button type="submit">Submit New Memory</button>
       </form>
     </div>

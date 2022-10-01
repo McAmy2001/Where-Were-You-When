@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-// once set up, connect to mutations to add update/edit and delete memory buttons
-// import { useMutation } from "@apollo/client";
-// import { UPDATE_MEMORY, DELETE_MEMORY } from "../../utils/mutations";
+// connect to mutations to add update/edit and delete memory buttons
+import { useMutation } from "@apollo/client";
+import { UPDATE_MEMORY, DELETE_MEMORY } from "../../utils/mutations";
 
 const Memory = ({ memory, date }) => {
   if (!memory.length) {
