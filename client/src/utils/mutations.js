@@ -42,10 +42,10 @@ export const UPDATE_MEMORY =gql`
     updateMemory(_id: $ID) {
       _id
       username
-      memoryText
       memoryYear
       memoryMonth
       memoryDate
+      memoryText
     }
   }
 `;

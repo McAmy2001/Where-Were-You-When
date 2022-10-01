@@ -26,6 +26,19 @@ export const QUERY_MEMORY = gql`
   }
 `;
 
+export const QUERY_EVERYMEMORY = gql`
+  query everyMemory {
+    memory {
+      _id
+      username
+      memoryText
+      memoryYear
+      memoryMonth
+      memoryDate
+    }
+  }
+`;
+
 export const QUERY_USER = gql`
   query user($username: String!) {
     user(username: $username) {
