@@ -94,13 +94,18 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
       
     },
-    deleteMemory: async (parent, { _id }, context) => {
+    deleteMemory: async (parent, args, context) => {
       if (context.user) {
+        const memory = await Memory.findById({
+          ...args,
+          username: context.user.username,
+        });
+
         const updatedUser = await User.findByIdAndUpdate(
-          {_id: user._id},
-          { $pull: { memory: _id }},
+          { _id: context.user._id },
+          { $pull: { memory: memory._id }},
           { new: true }
-        ).populate('memory');
+        );
 
         return updatedUser;
       }
