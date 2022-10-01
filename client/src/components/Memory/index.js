@@ -30,6 +30,8 @@ const Memory = ({ memory, date }) => {
               </Link>
             </div>
             {/* add in edit and delete buttons and functionality */}
+            <button type="submit">Edit Memory</button>
+            <button type="submit">Delete Memory</button>
           </div>
         ))}
     </div>
