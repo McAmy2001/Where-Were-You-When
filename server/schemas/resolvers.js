@@ -31,6 +31,7 @@ const resolvers = {
     },
     memory: async (parent, { _id }) => {
       return Memory.findOne({ _id });
+
     },
     everyMemory: async () => {
       return Memory.find().select("-__v");
@@ -78,13 +79,13 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
     updateMemory: async (parent, args, context) => {
+           
       if (context.user) 
       {
         const updatedMemory = await Memory.findByIdAndUpdate(
-           {_id: context.memory._id},
-           {username: context.user._id},
-           { $map: { args }}, //can I do this?  doesn't look right
-           { new: true },             
+           args._id,
+           {memoryText: args.memoryText},           
+           { new: true }           
       );
 
       return updatedMemory;
@@ -93,13 +94,18 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
       
     },
-    deleteMemory: async (parent, { _id }, context) => {
+    deleteMemory: async (parent, args, context) => {
       if (context.user) {
+        const memory = await Memory.findById({
+          ...args,
+          username: context.user.username,
+        });
+
         const updatedUser = await User.findByIdAndUpdate(
-          {_id: user._id},
-          { $pull: { memory: _id }},
+          { _id: context.user._id },
+          { $pull: { memory: memory._id }},
           { new: true }
-        ).populate('memory');
+        );
 
         return updatedUser;
       }
