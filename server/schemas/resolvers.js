@@ -34,6 +34,7 @@ const resolvers = {
 
     },
     everyMemory: async () => {
+      console.log('everyMemory called');
       return Memory.find().select("-__v");
     }
   },
@@ -106,6 +107,8 @@ const resolvers = {
           { $pull: { memory: memory._id }},
           { new: true }
         );
+
+        
 
         return updatedUser;
       }

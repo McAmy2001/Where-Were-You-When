@@ -27,16 +27,16 @@ export const QUERY_MEMORY = gql`
 `;
 
 export const QUERY_EVERYMEMORY = gql`
-  query everyMemory {
-    memory {
-      _id
-      username
-      memoryText
-      memoryYear
-      memoryMonth
-      memoryDate
-    }
+{
+  everyMemory {
+    _id
+    username
+    memoryText
+    memoryYear
+    memoryMonth
+    memoryDate
   }
+}
 `;
 
 export const QUERY_USER = gql`
@@ -82,3 +82,14 @@ export const QUERY_ME_BASIC = gql`
     }
   }
 `;
+
+export const QUERY_USERS = gql`
+{
+  users {
+    _id
+    username
+    email
+  }
+}
+`;
+

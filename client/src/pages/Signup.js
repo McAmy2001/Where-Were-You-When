@@ -40,8 +40,10 @@ const Signup = () => {
   return (
     <main>
       <div>
+
         <div className="signup">
-          <h2>Creat an Account</h2>
+          <h2>Create an Account</h2>
+
           <div>
             <form onSubmit={handleFormSubmit} className="form-flex">
               <input

@@ -6,8 +6,10 @@ import { QUERY_MEMORIES, QUERY_ME } from "../../utils/queries";
 
 /* Attempt #4 */
 const MemoryInput = () => {
+
   const [formState, setFormState] = useState({ memoryMonth: "", memoryDate: "", memoryYear: "", memoryText: "" });
   const { memoryMonth, memoryDate, memoryYear, memoryText } = formState;
+
 
   const [addMemory, { error }] = useMutation(ADD_MEMORY, {
     update(cache, { data: { addMemory } }) {
@@ -208,6 +210,7 @@ const MemoryInput = () => {
       cache.writeQuery({
         query: QUERY_MEMORIES,
         data: { memories: [addMemory, ...memories] }
+
       });
     }
   });
@@ -224,6 +227,7 @@ const MemoryInput = () => {
         variables: { memoryMonth: formState.memoryMonth, memoryDate: formState.memoryDate, memoryYear: formState.memoryYear, memoryText: formState.memoryText },
       });
       setFormState("");
+
     } catch (e) {
       console.error(e.message)
     }
@@ -261,6 +265,7 @@ const MemoryInput = () => {
             onChange={handleChange}
           ></textarea>
           <button type="submit">Submit</button>
+
       </form>
       {error && <p>Something went wrong.</p>}
     </div>
