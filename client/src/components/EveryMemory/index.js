@@ -1,6 +1,6 @@
-import React, { useState, useAEffect } from 'react';
-import { gql, useQuery } from '@apollo/client';
-const { QUERY_EVERYMEMORY, QUERY_ME_BASIC, QUERY_USERS } = require('../../utils/queries');
+import React from 'react';
+import { useQuery } from '@apollo/client';
+const { QUERY_EVERYMEMORY } = require('../../utils/queries');
 
 
 function EveryMemory() {
