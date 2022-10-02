@@ -4,9 +4,11 @@ import { Navigate, useParams } from "react-router-dom";
 import Memory from "../components/Memory";
 import MemoryInput from "../components/MemoryInput";
 
+
 // import Queries
 import { useQuery } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
+
 
 import Auth from "../utils/auth";
 

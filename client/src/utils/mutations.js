@@ -37,6 +37,32 @@ export const ADD_MEMORY = gql`
   }
 `;
 
+export const UPDATE_MEMORY =gql`
+  mutation updateMemory($_id: ID!) {
+    updateMemory(_id: $ID) {
+      _id
+      username
+      memoryYear
+      memoryMonth
+      memoryDate
+      memoryText
+    }
+  }
+`;
+
+export const DELETE_MEMORY = gql`
+  mutation deleteMemory($id: ID!) {
+    deleteMemory(id: $id) {
+      _id
+      username
+      memoryYear
+      memoryMonth
+      memoryDate
+      memoryText
+    }
+  }
+`;
+
 
 
 
