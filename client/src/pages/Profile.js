@@ -5,8 +5,8 @@ import Memory from "../components/Memory";
 import MemoryInput from "../components/MemoryInput";
 
 // import Queries and Mutations once they're set up
-import { useQuery, useMutation } from "@apollo/client";
-import { QUERY_USER, QUERY_ME, QUERY_MEMORIES } from "../utils/queries";
+import { useQuery } from "@apollo/client";
+import { QUERY_USER, QUERY_ME } from "../utils/queries";
 import {} from "../utils/mutations";
 
 import Auth from "../utils/auth";
