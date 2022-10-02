@@ -20,6 +20,20 @@ const SingleMemory = (props) => {
 
   const memory = data?.memory || {};
 
+  // const deleteMemory = () => {
+  //   ({
+  //     DELETE_MEMORY
+  //     _id: currentMemory._id
+  //   });
+  // };
+
+  // const editMemory = () => {
+  //   ({
+  //     UPDATE_MEMORY
+  //     _id: currentMemory._id
+  //   })
+  // }
+
   return (
     <div>
       <div>
@@ -30,8 +44,12 @@ const SingleMemory = (props) => {
           <p>{memory.memoryText}</p>
         </div>
         {/* add in edit and delete buttons and functionality here or on Memory component */}
-        <button type="submit">Edit Memory</button>
-        <button type="submit">Delete Memory</button>
+        <button type="submit" onClick={deleteMemory}>
+          Edit Memory
+        </button>
+        <button type="submit" onClick={editMemory}>
+          Delete Memory
+        </button>
       </div>
     </div>
   );
