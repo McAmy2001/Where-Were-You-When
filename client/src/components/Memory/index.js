@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 // connect to mutations to add update/edit and delete memory buttons
-import { useMutation } from "@apollo/client";
-import { UPDATE_MEMORY, DELETE_MEMORY } from "../../utils/mutations";
+// import { useMutation } from "@apollo/client";
+// import { UPDATE_MEMORY, DELETE_MEMORY } from "../../utils/mutations";
 
 const Memory = ({ memory, date }) => {
   if (!memory.length) {
@@ -29,9 +29,9 @@ const Memory = ({ memory, date }) => {
                 <p>{memory.memoryText}</p>
               </Link>
             </div>
-            {/* add in edit and delete buttons and functionality */}
-            <button type="submit">Edit Memory</button>
-            <button type="submit">Delete Memory</button>
+            {/* add in edit and delete buttons and functionality here or move to SingleThought page */}
+            {/* <button type="submit">Edit Memory</button>
+            <button type="submit">Delete Memory</button> */}
           </div>
         ))}
     </div>
