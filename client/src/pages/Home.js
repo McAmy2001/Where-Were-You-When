@@ -7,6 +7,7 @@ import Auth from "../utils/auth";
 
 import { useQuery } from "@apollo/client";
 import { QUERY_MEMORIES } from "../utils/queries";
+import EveryMemory from "../components/EveryMemory";
 
 const Home = () => {
   // add useQuery hook here
@@ -24,6 +25,7 @@ const Home = () => {
       )}
       {loggedIn ? (
         <div>
+          <EveryMemory />
           <MemoryInput />
           <Memory memory={memory} />
         </div>

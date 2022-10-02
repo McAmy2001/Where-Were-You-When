@@ -34,6 +34,7 @@ const resolvers = {
 
     },
     everyMemory: async () => {
+      console.log('everyMemory called');
       return Memory.find().select("-__v");
     }
   },
