@@ -26,13 +26,13 @@ function History() {
     return <div>Loading...</div>
   } else {
     return (
-      <div>
+      <div className="history">
         <h2>On This Day...</h2>
         <ul>
           {items.data.Events.map(item => (
             <li key={item.index}>
               {item.year} {item.text}<br />
-              <a href={item.links[0].link} target="_blank" rel="noopener norefferrer">{item.links[0].link}</a><br />
+             <a href={item.links[0].link} target="_blank" rel="noopener norefferrer">{item.links[0].link}</a><br />
             </li>
 
           ))}

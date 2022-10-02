@@ -25,16 +25,16 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_MEMORY = gql`
-  mutation addMemory($memoryText: String!) {
-    addMemory(memoryText: $memoryText) {
-      _id
-      memoryText
-      username
-      memoryYear
-      memoryMonth
-      memoryDate      
-    }
+mutation addMemory($memoryText: String!) {
+  addMemory(memoryText: $memoryText) {
+    _id
+    username
+    memoryMonth
+    memoryDate
+    memoryYear
+    memoryText
   }
+}
 `;
 
 export const UPDATE_MEMORY =gql`

@@ -13,20 +13,20 @@ const Header = () => {
     <header>
       <Link to="/">
         {" "}
-        <h1>Where Were You When</h1>
+        <h1 className="page-title">Where Were You When</h1>
       </Link>
       <nav>
         {Auth.loggedIn() ? (
           <>
-            <Link to="/profile">Profile</Link>
-            <a href="/" onClick={logout}>
+            <Link to="/profile" className="header-btn">Profile</Link>
+            <a href="/" onClick={logout} className="header-btn">
               Logout
             </a>
           </>
         ) : (
           <>
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Signup</Link>
+            <Link to="/login" className="header-btn">Login</Link>
+            <Link to="/signup" className="header-btn">Signup</Link>
           </>
         )}
       </nav>
