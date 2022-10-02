@@ -12,16 +12,16 @@ function EveryMemory () {
   
   if (error) {
     return <div>Error: {error.message}</div>;
-  } else if (!loading) {
+  } else if (loading) {
     return <div>Loading...</div>
   } else {
     return (
       <div>
-        <h2>User Memories</h2>
+        <h2>All User Memories</h2>
         <ul>
           {memories.map(item => (
             <li key={item.index}>
-              {item.memoryMonth}/{item.memoryDate}/{item.memoryYear}<br />
+              {item.memoryMonth}/{item.memoryDate}/{item.memoryYear}  {item.username} remembers...<br />
               {item.memoryText}
             </li>
 
