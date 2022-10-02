@@ -32,9 +32,9 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     addMemory(
       memoryText: String!,
-      memoryYear: Int!,
-      memoryMonth: Int!,
-      memoryDate: Int!,
+      memoryYear: Int,
+      memoryMonth: Int,
+      memoryDate: Int,
     ): Memory
     updateMemory(_id:ID!,
       memoryText: String): Memory
