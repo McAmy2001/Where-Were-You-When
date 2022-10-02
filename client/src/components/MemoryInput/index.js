@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { ADD_MEMORY } from "../../utils/mutations";
 import { QUERY_MEMORIES, QUERY_ME } from "../../utils/queries";
 
