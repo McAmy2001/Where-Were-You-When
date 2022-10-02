@@ -42,12 +42,12 @@ const Login = (props) => {
   };
 
   return (
-    <main>
+<main>
       <div>
-        <div>
-          <h3>Login</h3>
+        <div className="login">
+          <h2>Login</h2>
           <div>
-            <form onSubmit={handleFormSubmit}>
+            <form onSubmit={handleFormSubmit} className="form-flex">
               <input
                 placeholder="Your email"
                 name="email"
@@ -55,6 +55,7 @@ const Login = (props) => {
                 id="email"
                 value={formState.email}
                 onChange={handleChange}
+                className="form-input"
               />
               <input
                 placeholder="******"
@@ -63,8 +64,9 @@ const Login = (props) => {
                 id="password"
                 value={formState.password}
                 onChange={handleChange}
+                className="form-input"
               />
-              <button>Submit</button>
+              <button className="submit-btn">Submit</button>
             </form>
 
             {error && <div>Login failed</div>}
@@ -74,5 +76,4 @@ const Login = (props) => {
     </main>
   );
 };
-
 export default Login;
