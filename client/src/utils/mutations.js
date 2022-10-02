@@ -25,14 +25,14 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_MEMORY = gql`
-mutation AddMemory($memoryText: String!, $memoryYear: Int, $memoryMonth: Int, $memoryDate: Int) {
-  addMemory(memoryText: $memoryText, memoryYear: $memoryYear, memoryMonth: $memoryMonth, memoryDate: $memoryDate) {
+mutation addMemory($memoryMonth: Int!, $memoryDate: Int!, $memoryYear: Int!, $memoryText: String!) {
+  addMemory(memoryMonth: $memoryMonth, memoryDate: $memoryDate, memoryYear: $memoryYear, memoryText: $memoryText) {
     _id
-    memoryText
     username
-    memoryYear
     memoryMonth
     memoryDate
+    memoryYear
+    memoryText
   }
 }
 `;

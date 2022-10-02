@@ -1,24 +1,29 @@
 import React, { useState } from "react";
 
-import { useMutation, useQuery } from "@apollo/client";
+import { useMutation, useQuery, useLazyQuery } from "@apollo/client";
 import { ADD_MEMORY } from "../../utils/mutations";
 import { QUERY_MEMORIES, QUERY_ME } from "../../utils/queries";
 
 /* Attempt #2 */
 const MemoryInput = () => {
   const [formState, setFormState] = useState({ memoryMonth: "", memoryDate: "", memoryYear: "", memoryText: "" });
+  const { memoryMonth, memoryDate, memoryYear, memoryText } = formState;
+
   const [addMemory, { error }] = useMutation(ADD_MEMORY, {
     update(cache, { data: { addMemory } }) {
       try {
         const { me } = cache.readQuery({ query: QUERY_ME });
+        console.log(me);
         cache.writeQuery({
           query: QUERY_ME,
-          data: { me: { ...me, memories: [...me.memories, addMemory] } },
+          data: { me: { ...me, memory: [...me.memory, addMemory] } },
+
         });
+
       } catch (e) {
         console.warn("First memory by user.");
       }
-
+      
       const { memories } = cache.readQuery({ query: QUERY_MEMORIES });
 
       cache.writeQuery({
@@ -28,12 +33,8 @@ const MemoryInput = () => {
     }
   });
 
-  const handleChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setFormState((prev) => {
-      return {...prev, [name]: value}
-    });
+  function handleChange(e) {
+    setFormState({ ...formState, [e.target.name]: e.target.value });
   }
 
   const handleFormSubmit = async (event) => {
@@ -41,11 +42,11 @@ const MemoryInput = () => {
 
     try {
       await addMemory({
-        variables: { formState },
+        variables: { memoryMonth: formState.memoryMonth, memoryDate: formState.memoryDate, memoryYear: formState.memoryYear, memoryText: formState.memoryText },
       });
       setFormState("");
     } catch (e) {
-      console.error(e)
+      console.error(e.message)
     }
   }; 
 
@@ -57,23 +58,27 @@ const MemoryInput = () => {
             placeholder="Enter a month as 1-12"
             type="number"
             name="memoryMonth"
+            value={memoryMonth}
             onChange={handleChange}
           />
           <input
             placeholder="Enter a date as 1-31"
             type="number"
             name="memoryDate"
+            value={memoryDate}
             onChange={handleChange}
           />
           <input
             placeholder="Enter a year"
             type="number"
             name="memoryYear"
+            value={memoryYear}
             onChange={handleChange}
           />
           <textarea
             placeholder="Record your memory"
             name="memoryText"
+            value={memoryText}
             onChange={handleChange}
           ></textarea>
           <button type="submit">Submit</button>
