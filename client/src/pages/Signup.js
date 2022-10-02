@@ -41,7 +41,7 @@ const Signup = () => {
     <main>
       <div>
         <div>
-          <h4>Creat an Account</h4>
+          <h4>Create an Account</h4>
           <div>
             <form onSubmit={handleFormSubmit}>
               <input

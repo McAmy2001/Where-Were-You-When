@@ -25,9 +25,10 @@ const Home = () => {
       )}
       {loggedIn ? (
         <div>
-          <EveryMemory />
           <MemoryInput />
           <Memory memory={memory} />
+          <EveryMemory />
+          <History />
         </div>
       ) : null}
     </main>
