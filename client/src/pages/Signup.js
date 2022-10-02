@@ -40,17 +40,18 @@ const Signup = () => {
   return (
     <main>
       <div>
-        <div>
-          <h4>Creat an Account</h4>
+        <div className="signup">
+          <h2>Creat an Account</h2>
           <div>
-            <form onSubmit={handleFormSubmit}>
+            <form onSubmit={handleFormSubmit} className="form-flex">
               <input
-                placeholder="Username"
+                placeholder="Choose a username"
                 name="username"
                 type="username"
                 id="username"
                 value={formState.username}
                 onChange={handleChange}
+                className="form-input"
               />
               <input
                 placeholder="Enter your email"
@@ -59,6 +60,7 @@ const Signup = () => {
                 id="email"
                 value={formState.email}
                 onChange={handleChange}
+                className="form-input"
               />
               <input
                 placeholder="******"
@@ -67,8 +69,9 @@ const Signup = () => {
                 id="password"
                 value={formState.password}
                 onChange={handleChange}
+                className="form-input"
               />
-              <button>Create New Account</button>
+              <button className="submit-btn">Create New Account</button>
             </form>
 
             {error && <div>Signup failed</div>}
