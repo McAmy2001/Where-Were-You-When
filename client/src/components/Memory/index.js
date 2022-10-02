@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useQuery } from '@apollo/client';
 const { QUERY_ME } = require('../../utils/queries');
 
@@ -8,18 +7,10 @@ const { QUERY_ME } = require('../../utils/queries');
 // import { UPDATE_MEMORY, DELETE_MEMORY } from "../../utils/mutations";
 
 function Memory() {
-  const { loading, error, data } = useQuery(QUERY_ME);
-  console.log('user memories should be here');
-  //console.log(data);
-  //console.log(data.me.username);
-  //console.log(data.me.memory[0].memoryText);
+  const { loading, error, data } = useQuery(QUERY_ME);  
 
   const myMemories = data?.me.memory || [];
   console.log(myMemories);
-
-  //const sortedMyMemories = myMemories.sort(function(a,b) {
-  //  return a.memoryYear - b.memoryYear;
-  //})
 
   if (!myMemories.length) {
     return (
