@@ -80,7 +80,6 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
     updateMemory: async (parent, args, context) => {
-           
       if (context.user) 
       {
         const updatedMemory = await Memory.findByIdAndUpdate(
@@ -107,6 +106,11 @@ const resolvers = {
           { $pull: { memory: memory._id }},
           { new: true }
         );
+
+        const memoryDelete = await Memory.findByIdAndDelete({
+          _id: args._id
+        });
+        return updatedUser;
 
         
 

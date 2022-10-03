@@ -34,10 +34,10 @@ function History() {
               {item.year} {item.text}<br />
              <a href={item.links[0].link} target="_blank" rel="noopener norefferrer">{item.links[0].link}</a><br />
             </li>
-
           ))}
           <br />
         </ul>
+        <h6>On this day events from: https://history.muffinlabs.com/#api</h6>
       </div>
     );
   }
