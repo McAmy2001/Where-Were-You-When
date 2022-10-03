@@ -27,7 +27,6 @@ function Memory() {
   } else {
     return (
       <div>
-        <h2>Your memories</h2>
         <ul>
           {myMemories.map((item) => (
             <li key={item.index}>
