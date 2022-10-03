@@ -6,10 +6,13 @@ import { QUERY_MEMORIES, QUERY_ME } from "../../utils/queries";
 
 /* Attempt #4 */
 const MemoryInput = () => {
-
-  const [formState, setFormState] = useState({ memoryMonth: "", memoryDate: "", memoryYear: "", memoryText: "" });
+  const [formState, setFormState] = useState({
+    memoryMonth: "",
+    memoryDate: "",
+    memoryYear: "",
+    memoryText: "",
+  });
   const { memoryMonth, memoryDate, memoryYear, memoryText } = formState;
-
 
   const [addMemory, { error }] = useMutation(ADD_MEMORY, {
     update(cache, { data: { addMemory } }) {
@@ -19,20 +22,18 @@ const MemoryInput = () => {
         cache.writeQuery({
           query: QUERY_ME,
           data: { me: { ...me, memory: [...me.memory, addMemory] } },
-
         });
-
       } catch (e) {
         console.warn("First memory by user.");
       }
-      
+
       const { memories } = cache.readQuery({ query: QUERY_MEMORIES });
 
       cache.writeQuery({
         query: QUERY_MEMORIES,
-        data: { memories: [addMemory, ...memories] }
+        data: { memories: [addMemory, ...memories] },
       });
-    }
+    },
   });
 
   const handleChange = (event) => {
@@ -49,55 +50,62 @@ const MemoryInput = () => {
 
     try {
       await addMemory({
-        variables: { memoryMonth: formState.memoryMonth, memoryDate: formState.memoryDate, memoryYear: formState.memoryYear, memoryText: formState.memoryText },
+        variables: {
+          memoryMonth: formState.memoryMonth,
+          memoryDate: formState.memoryDate,
+          memoryYear: formState.memoryYear,
+          memoryText: formState.memoryText,
+        },
       });
       setFormState("");
     } catch (e) {
-      console.error(e.message)
+      console.error(e.message);
     }
-  }; 
+  };
 
   return (
     <div>
       <h3>Record Your Memory</h3>
       <form onSubmit={handleFormSubmit} className="form-flex">
-      <input
-            placeholder="Enter a month as 1-12"
-            type="number"
-            name="memoryMonth"
-            value={memoryMonth}
-            onChange={handleChange}
-            className="form-input"
-          />
-          <input
-            placeholder="Enter a date as 1-31"
-            type="number"
-            name="memoryDate"
-            value={memoryDate}
-            onChange={handleChange}
-            className="form-input"
-          />
-          <input
-            placeholder="Enter a year"
-            type="number"
-            name="memoryYear"
-            value={memoryYear}
-            onChange={handleChange}
-            className="form-input"
-          />
-          <textarea
-            placeholder="Record your memory"
-            name="memoryText"
-            value={memoryText}
-            onChange={handleChange}
-            className="form-input"
-          ></textarea>
-          <button type="submit" className="submit-btn">Submit</button>
+        <input
+          placeholder="Enter a month as 1-12"
+          type="number"
+          name="memoryMonth"
+          value={memoryMonth}
+          onChange={handleChange}
+          className="form-input"
+        />
+        <input
+          placeholder="Enter a date as 1-31"
+          type="number"
+          name="memoryDate"
+          value={memoryDate}
+          onChange={handleChange}
+          className="form-input"
+        />
+        <input
+          placeholder="Enter a year"
+          type="number"
+          name="memoryYear"
+          value={memoryYear}
+          onChange={handleChange}
+          className="form-input"
+        />
+        <textarea
+          placeholder="Record your memory"
+          name="memoryText"
+          value={memoryText}
+          onChange={handleChange}
+          className="form-input"
+        ></textarea>
+        <button type="submit" className="submit-btn">
+          Submit
+        </button>
       </form>
       {error && <p>Something went wrong.</p>}
     </div>
-  )
-}
+  );
+};
 
 export default MemoryInput;
 
@@ -118,7 +126,7 @@ export default MemoryInput;
 //       } catch (e) {
 //         console.warn("First memory by user.");
 //       }
-      
+
 //       const { memories } = cache.readQuery({ query: QUERY_MEMORIES });
 
 //       cache.writeQuery({
@@ -143,7 +151,7 @@ export default MemoryInput;
 //     } catch (e) {
 //       console.error(e.message)
 //     }
-//   }; 
+//   };
 
 //   return (
 //     <div>
@@ -274,4 +282,3 @@ const MemoryInput = () => {
 
 export default MemoryInput;
 */
-
