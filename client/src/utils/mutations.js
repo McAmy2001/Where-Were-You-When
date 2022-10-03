@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
@@ -25,21 +25,31 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_MEMORY = gql`
-mutation addMemory( $memoryMonth: Int!, $memoryDate: Int!, $memoryYear: Int!, $memoryText: String!) {
-  addMemory(memoryMonth: $memoryMonth!, memoryDate: $memoryDate!, memoryYear: $memoryYear!, memoryText: $memoryText!) {
-    _id
-    username
-    memoryMonth
-    memoryDate
-    memoryYear
-    memoryText
+  mutation addMemory(
+    $memoryMonth: Int!
+    $memoryDate: Int!
+    $memoryYear: Int!
+    $memoryText: String!
+  ) {
+    addMemory(
+      memoryMonth: $memoryMonth
+      memoryDate: $memoryDate
+      memoryYear: $memoryYear
+      memoryText: $memoryText
+    ) {
+      _id
+      username
+      memoryMonth
+      memoryDate
+      memoryYear
+      memoryText
+    }
   }
-}
 `;
 
-export const UPDATE_MEMORY =gql`
+export const UPDATE_MEMORY = gql`
   mutation updateMemory($_id: ID!, $memoryText: String!) {
-    updateMemory(_id: $id, memoryText: $memoryText!) {
+    updateMemory(_id: $id, memoryText: $memoryText) {
       _id
       username
       memoryYear
@@ -62,7 +72,3 @@ export const DELETE_MEMORY = gql`
     }
   }
 `;
-
-
-
-
