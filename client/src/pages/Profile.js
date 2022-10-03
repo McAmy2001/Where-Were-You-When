@@ -55,7 +55,7 @@ const Profile = (props) => {
       <div>
         <div>
           <h2>My Memories</h2>
-          <Memory memory={memory} title={`${user.username}'s Memories`} />
+          <Memory  />
         </div>
       </div>
     </div>

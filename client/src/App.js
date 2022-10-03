@@ -17,6 +17,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import NoMatch from "./pages/NoMatch";
+import SingleMemory from "./pages/SingleMemory";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -53,6 +54,7 @@ function App() {
                 <Route path=":username" element={<Profile />} />
                 <Route path="" element={<Profile />} />
               </Route>
+              <Route path="/memory/:id" element={<SingleMemory />} />
               <Route path="*" element={<NoMatch />} />
             </Routes>
           </div>

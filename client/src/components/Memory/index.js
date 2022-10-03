@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import { useQuery } from "@apollo/client";
 const { QUERY_ME } = require("../../utils/queries");
 
@@ -7,6 +8,7 @@ const { QUERY_ME } = require("../../utils/queries");
 // import { UPDATE_MEMORY, DELETE_MEMORY } from "../../utils/mutations";
 
 function Memory() {
+
   const { loading, error, data } = useQuery(QUERY_ME);
 
   const myMemories = data?.me.memory || [];
@@ -27,13 +29,14 @@ function Memory() {
   } else {
     return (
       <div>
-        <h2>Your memories</h2>
         <ul>
-          {myMemories.map((item) => (
-            <li key={item.index}>
-              {item.memoryMonth}/{item.memoryDate}/{item.memoryYear} <br />
-              {item.memoryText}
+          {myMemories.map((memory) => (
+            <Link to={`/memory/${memory._id}`}>
+            <li key={memory.index}>
+              My memory of: {memory.memoryMonth}/{memory.memoryDate}/{memory.memoryYear}: <br />
+              {memory.memoryText}
             </li>
+            </Link>
           ))}
         </ul>
       </div>
