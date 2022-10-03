@@ -1,6 +1,6 @@
 import React from "react";
-import { useQuery } from '@apollo/client';
-const { QUERY_ME } = require('../../utils/queries');
+import { useQuery } from "@apollo/client";
+const { QUERY_ME } = require("../../utils/queries");
 
 // connect to mutations to add update/edit and delete memory buttons
 // import { useMutation } from "@apollo/client";
@@ -21,15 +21,15 @@ function Memory() {
     );
   }
   if (error) {
-    return <div>Error: {error.message}</div>
+    return <div>Error: {error.message}</div>;
   } else if (loading) {
-    return <div>Loading...</div>
+    return <div>Loading...</div>;
   } else {
     return (
       <div>
         <h2>Your memories</h2>
         <ul>
-          {myMemories.map(item => (
+          {myMemories.map((item) => (
             <li key={item.index}>
               {item.memoryMonth}/{item.memoryDate}/{item.memoryYear} <br />
               {item.memoryText}
