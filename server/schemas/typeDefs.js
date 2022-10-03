@@ -37,7 +37,7 @@ const typeDefs = gql`
       memoryText: String!,
     ): Memory
     updateMemory(_id:ID!,
-      memoryText: String): Memory
+      memoryText: String!): Memory
     deleteMemory(_id: ID!): Memory
   }
 `;
