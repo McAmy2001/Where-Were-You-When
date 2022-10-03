@@ -5,7 +5,7 @@ import Memory from "../components/Memory";
 
 // connect to mutations to add update/edit and delete memory buttons
 import { useMutation } from "@apollo/client";
-import { UPDATE_MEMORY, DELETE_MEMORY } from "../../utils/mutations";
+import { UPDATE_MEMORY, DELETE_MEMORY } from "../utils/mutations";
 
 import Auth from "../utils/auth";
 import { useQuery } from "@apollo/client";
@@ -44,12 +44,14 @@ const SingleMemory = (props) => {
           <p>{memory.memoryText}</p>
         </div>
         {/* add in edit and delete buttons and functionality here or on Memory component */}
-        <button type="submit" onClick={deleteMemory}>
+        {/* <button type="submit" onClick={deleteMemory}>
           Edit Memory
         </button>
         <button type="submit" onClick={editMemory}>
           Delete Memory
-        </button>
+        </button> */}
+        <button>Edit Memory</button>
+        <button>Delete Memory</button>
       </div>
     </div>
   );

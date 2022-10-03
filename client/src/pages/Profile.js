@@ -1,14 +1,14 @@
 import React from "react";
 import { Navigate, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Memory from "../components/Memory";
 import MemoryInput from "../components/MemoryInput";
-
+import SingleMemory from "../pages/SingleMemory";
 
 // import Queries
 import { useQuery } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
-
 
 import Auth from "../utils/auth";
 
@@ -56,6 +56,10 @@ const Profile = (props) => {
         <div>
           <h2>My Memories</h2>
           <Memory memory={memory} title={`${user.username}'s Memories`} />
+          <SingleMemory
+            memory={memory}
+            title={`${memory.month} ${memory.date} ${memory.year}`}
+          />
         </div>
       </div>
     </div>
