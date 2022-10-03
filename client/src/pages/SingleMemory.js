@@ -12,10 +12,10 @@ import { useQuery } from "@apollo/client";
 import { QUERY_MEMORY } from "../utils/queries";
 
 const SingleMemory = (props) => {
-  const { id: memoryId } = useParams();
+  const { memoryId } = useParams();
 
   const { data } = useQuery(QUERY_MEMORY, {
-    variables: { id: memoryId },
+    variables: { memoryId: memoryId },
   });
 
   const memory = data?.memory || {};
@@ -38,7 +38,11 @@ const SingleMemory = (props) => {
     <div>
       <div>
         <p c>
-          <span>{memory.username}</span> Memory on {memory.memoryDate}
+          <span>
+            {" "}
+            Memory on {memory.memoryMonth} {memory.memoryDate}{" "}
+            {memory.memoryYear}
+          </span>
         </p>
         <div>
           <p>{memory.memoryText}</p>
