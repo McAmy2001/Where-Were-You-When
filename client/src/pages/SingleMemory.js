@@ -89,6 +89,19 @@ console.log(memory);
 //}
 const [deleteMemory] = useMutation(DELETE_MEMORY);
 
+const handleDeleteClick = async (event) => {
+
+  event.preventDefault();
+  try {
+    console.log(['XXX', memoryId]);
+    await deleteMemory({ variables: { _id: memoryId }});
+  }
+  catch (e) {
+    console.error(e);
+  }
+  window.open('/profile');
+};
+
 
 if (loading) {
   return <div>Loading...</div>;
@@ -97,7 +110,7 @@ return (
   <div>
     My memory of: {memory.memoryMonth}/{memory.memoryDate}/{memory.memoryYear}: <br/>
     {memory.memoryText} <br/>
-    <button onClick={deleteMemory}>Delete</button>
+    <button onClick={handleDeleteClick}>Delete</button>
     <button>Edit</button>
   </div>
 )
