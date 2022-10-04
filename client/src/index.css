@@ -134,6 +134,13 @@ li {
   filter: drop-shadow(2px 2px 2px var(--seventh-color));
 }
 
+/* History */
+.api-reference {
+  font-size: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
 /* Footer */
 footer {
   position: absolute;
@@ -149,4 +156,3 @@ footer div {
   font-style: italic;
   padding-top: 10px;
 }
-

@@ -45,7 +45,6 @@ function EditMemoryForm() {
         <textarea 
           className="form-input"
           name="memoryText"
-          value={memoryText}
           onChange={(e) =>
             setMemoryText(e.target.value)}
         ></textarea>
