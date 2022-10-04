@@ -86,8 +86,12 @@ h2 {
   text-align: center;
 }
 
-/* History */
-.history li {
+a {
+  text-decoration: none;
+  color: var(--seventh-color);
+}
+
+li {
   list-style: none;
   border: 1px solid var(--sixth-color);
   border-radius: 5px;
@@ -97,12 +101,7 @@ h2 {
   filter: drop-shadow(2px 2px 2px var(--seventh-color));
 }
 
-.history a {
-  text-decoration: none;
-  color: var(--seventh-color);
-}
-
-/* Login & Signup */
+/* Login, Signup, and Memory Input Forms */
 .form-flex {
   display: flex;
   flex-direction: column;

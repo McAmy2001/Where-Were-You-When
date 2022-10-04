@@ -26,7 +26,10 @@ const Home = () => {
       {loggedIn ? (
         <div>
           <MemoryInput />
+          <br />
+          <h2>Your Memories for Today</h2>
           <Memory memory={memory} />
+          <br />
           <EveryMemory />
           <History />
         </div>
