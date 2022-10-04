@@ -8,7 +8,7 @@ const resolvers = {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
           .select("-__v -password")
-          .populate("memory");
+          .populate("memories");
 
         return userData;
       }
@@ -18,12 +18,12 @@ const resolvers = {
     users: async () => {
       return User.find()
         .select('-__v -password')
-        .populate('memory');
+        .populate('memories');
     },
     user: async (parent, { username }) => {
       return User.findOne({ username })
         .select('-__v -password')
-        .populate('memory');
+        .populate('memories');
     },
     memories: async (parent, { username }) => {
       const params = username ? { username } : {};
@@ -70,7 +70,7 @@ const resolvers = {
 
         await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $push: { memory: memory._id } },
+          { $push: { memories: memory._id } },
           { new: true }
         );
 
@@ -104,7 +104,7 @@ const resolvers = {
 
         const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $pull: { memory: memory._id }},
+          { $pull: { memories: memory._id }},
           { new: true }
         );
 

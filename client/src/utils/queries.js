@@ -45,7 +45,7 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      memory {
+      memories {
         _id
         memoryText
         memoryYear
@@ -62,12 +62,12 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      memory {
+      memories {
         _id
-        memoryText
-        memoryYear
         memoryMonth
         memoryDate
+        memoryYear
+        memoryText
       }
     }
   }

@@ -12,7 +12,7 @@ import EveryMemory from "../components/EveryMemory";
 const Home = () => {
   // add useQuery hook here
   const { data } = useQuery(QUERY_MEMORIES);
-  const memory = data?.memory || [];
+  const memory = data?.memories || [];
 
   const loggedIn = Auth.loggedIn();
 

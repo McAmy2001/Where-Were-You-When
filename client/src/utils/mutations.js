@@ -26,8 +26,8 @@ export const ADD_USER = gql`
 
 export const ADD_MEMORY = gql`
   mutation addMemory(
-    $memoryMonth: Int!
-    $memoryDate: Int!
+    $memoryMonth: Int
+    $memoryDate: Int
     $memoryYear: Int!
     $memoryText: String!
   ) {
