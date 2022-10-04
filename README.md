@@ -63,6 +63,7 @@ Once the user logs in, they can record their own memories. The user can also vie
 - View memories by chosen year, month, date, etc.
 - Ability to follower other users.
 - View other users' profiles.
+- Ability to upload pictures, videos, and audio files.
 - PWA functionality.
 - Find a new hosting site instead of Heroku.
 
@@ -76,7 +77,7 @@ This project is licensed under the MIT license.
 
 ## Credits
 
-Boot Camp Module 21
+Boot Camp Modules 20 and 21
 
 Boot Camp Tutor Meg Meyers
 
