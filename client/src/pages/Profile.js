@@ -43,7 +43,7 @@ const Profile = (props) => {
   }
 
   return (
-    <div>
+    <div className="page-view">
       <div>
         <h2>
           Viewing {userParam ? `${user.username}'s` : "your"} memory profile.
@@ -51,6 +51,7 @@ const Profile = (props) => {
       </div>
       <div>
         <MemoryInput />
+        <br />
       </div>
 
       <div>

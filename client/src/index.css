@@ -39,8 +39,9 @@ header {
   background-image: linear-gradient(to bottom right, var(--third-color), var(--fourth-color));
   background-color: var(--third-color);
   text-align: center;
-  height: 140px;
+  height: 180px;
   text-decoration: none;
+  padding-top: 10px;
   margin-bottom: 20px;
 }
 
@@ -77,7 +78,7 @@ header h1 {
 }
 
 /* Main */
-main {
+.page-view {
   width: 80%;
   margin: 0 auto;
 }
@@ -148,3 +149,4 @@ footer div {
   font-style: italic;
   padding-top: 10px;
 }
+

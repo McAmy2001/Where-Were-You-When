@@ -17,7 +17,7 @@ const Home = () => {
   const loggedIn = Auth.loggedIn();
 
   return (
-    <main>
+    <main className="page-view">
       {!loggedIn && (
         <div>
           <History />
