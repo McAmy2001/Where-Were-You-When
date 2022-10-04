@@ -28,7 +28,7 @@ function SingleMemory() {
     catch (e) {
       console.error(e);
     }
-    window.open('/profile');
+    document.referrer ? window.location = document.referrer : window.history.back()
   };
 
   if (loading) {
