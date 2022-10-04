@@ -62,13 +62,8 @@ export const UPDATE_MEMORY = gql`
 
 export const DELETE_MEMORY = gql`
   mutation deleteMemory($_id: ID!) {
-    deleteMemory(_id: $id) {
+    deleteMemory(_id: $_id) {
       _id
-      username
-      memoryYear
-      memoryMonth
-      memoryDate
-      memoryText
     }
   }
 `;
