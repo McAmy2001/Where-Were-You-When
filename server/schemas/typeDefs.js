@@ -9,7 +9,7 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
-    memory: [Memory]
+    memories: [Memory]
   }
   type Memory {
     _id: ID

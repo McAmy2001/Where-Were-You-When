@@ -19,7 +19,7 @@ const UserSchema = new Schema({
     required: true,
     minLength: 5,
   },
-  memory: [
+  memories: [
     {
       type: Schema.Types.ObjectId,
       ref: "Memory",

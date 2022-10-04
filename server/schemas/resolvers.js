@@ -70,7 +70,7 @@ const resolvers = {
 
         await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $push: { memory: memory._id } },
+          { $push: { memories: memory._id } },
           { new: true }
         );
 
@@ -104,7 +104,7 @@ const resolvers = {
 
         const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $pull: { memory: memory._id }},
+          { $pull: { memories: memory._id }},
           { new: true }
         );
 
