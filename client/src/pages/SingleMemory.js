@@ -38,7 +38,8 @@ function SingleMemory() {
     <div className="page-view">
       <h3>My memory of {memory.memoryMonth}/{memory.memoryDate}/{memory.memoryYear}:</h3>
       <p className="form-input">{memory.memoryText}</p>
-      <button onClick={handleDeleteClick} className="submit-btn">Delete</button><br />
+      <button onClick={handleDeleteClick} className="submit-btn">Delete</button>
+      <br /><br />
       <EditMemoryForm memory={memory} />
     </div>
   )

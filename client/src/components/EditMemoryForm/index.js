@@ -13,10 +13,10 @@ function EditMemoryForm() {
 
   return (
     <div>
-      <form onSubmit={handleEditClick}>
-        <label>Edit memory:</label><br />
-        <textarea></textarea><br />
-        <button type="submit">Save Edited Memory</button>
+      <form onSubmit={handleEditClick} className="form-flex">
+        <label><h4>Edit memory:</h4></label>
+        <textarea className="form-input"></textarea>
+        <button type="submit" className="submit-btn">Save Edited Memory</button>
       </form>
     </div>
   )
