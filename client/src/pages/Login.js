@@ -43,7 +43,7 @@ const Login = (props) => {
 
   return (
 <main>
-      <div>
+      <div className="page-view">
         <div className="login">
           <h2>Login</h2>
           <div>
