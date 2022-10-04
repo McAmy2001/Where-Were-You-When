@@ -33,7 +33,7 @@ db.once('open', async () => {
     const createdMemory = await Memory.create({ memoryText, username, memoryYear, memoryMonth, memoryDate });
     const updatedUser = await User.updateOne(
       { _id: userId },
-      { $push: { memory: createdMemory._id } }
+      { $push: { memories: createdMemory._id } }
     );
     memoryData.push(createdMemory);
    }
