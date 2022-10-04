@@ -1,12 +1,15 @@
 # Where Were You When
+
 ![Github license](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ## Description
-This is a MERN stack, single page application that allows a user to record and save their memories. The user can view their own past memories and will be reminded of a memory on the same date that they are using the application. 
+
+Where Were You When is a MERN stack, single page application that allows a user to record and save their memories. The user can view their own past memories and will be reminded of a memory on the same date that they are using the application.
 
 View the deployed application at [https://where-were-you-when.herokuapp.com/](https://where-were-you-when.herokuapp.com/).
 
 ## Table of Contents
+
 - [Installation](#installation)
 - [Usage](#usage)
 - [Technologies](#technologies)
@@ -15,6 +18,7 @@ View the deployed application at [https://where-were-you-when.herokuapp.com/](ht
 - [Credits](#credits)
 
 ## Installation
+
 In order to use this project, the user must have Node.js installed on their local machine.
 
 To clone the repository, type `git clone git@github.com:McAmy2001/Where-Were-You-When.git` in the command-line interface.
@@ -22,13 +26,21 @@ To clone the repository, type `git clone git@github.com:McAmy2001/Where-Were-You
 Once the repository is cloned, use `npm i` to install the required packages. Use `npm run seed` to seed the database.
 
 ## Usage
+
 When the user visits the app for the first time, they can view a list of historical events that happened on the same date it is.
 
-Once the user signs up or logs in, they can record their own memories. The user can also view all of their past memories, and they can view a feed of memories that corresponds with the current day.
+![Homepage](/client/src/assets/LoggedOutHomepage.png)
 
-![]()
+The user can sign up for an account to record their own memories.
+
+![Sign Up Page](/client/src/assets/SignUpForm.png)
+
+Once the user logs in, they can record their own memories. The user can also view all of their past memories, and they can view a feed of memories that corresponds with the current day.
+
+![Profile Page](/client/src/assets/LoggedInProfilePage.png)
 
 ## Technologies
+
 - [Apollo Server](https://www.apollographql.com/)
 - [bcrypt](https://www.npmjs.com/package/bcrypt)
 - [Concurrently](https://www.npmjs.com/package/concurrently)
@@ -47,6 +59,7 @@ Once the user signs up or logs in, they can record their own memories. The user 
 - [React](https://reactjs.org/)
 
 ## Future Developments
+
 - View memories by chosen year, month, date, etc.
 - Ability to follower other users.
 - View other users' profiles.
@@ -54,6 +67,7 @@ Once the user signs up or logs in, they can record their own memories. The user 
 - Find a new hosting site instead of Heroku.
 
 ## License
+
 &copy; 2022 by [Kristy Nerhaugen](https://github.com/KristyNerhaugen), [Amy McCabe](https://github.com/McAmy2001), [Angela Gustafson](https://github.com/angiebunk1), [Kayla Backus](https://github.com/kaylab78)
 
 This project is licensed under the MIT license.
@@ -61,22 +75,23 @@ This project is licensed under the MIT license.
 [License: MIT License](https://opensource.org/licenses/MIT)
 
 ## Credits
+
 Boot Camp Module 21
 
 Boot Camp Tutor Meg Meyers
 
-Chogyal, S. [Sir Chogyal]. (n.d.). *CSS To Position Footer always at the bottom but not Fixed or Sticky* [Video]. YouTube. [https://youtu.be/J-r75L3Tflg](https://youtu.be/J-r75L3Tflg)
+Chogyal, S. [Sir Chogyal]. (n.d.). _CSS To Position Footer always at the bottom but not Fixed or Sticky_ [Video]. YouTube. [https://youtu.be/J-r75L3Tflg](https://youtu.be/J-r75L3Tflg)
 
-[Code Bless You]. (2022, June 27). *Handling Complex Multiple Input Form States in React [2 LINES ONLY]* [Video]. YouTube [https://youtu.be/-KBS93RlUCY](https://youtu.be/-KBS93RlUCY)
+[Code Bless You]. (2022, June 27). _Handling Complex Multiple Input Form States in React [2 LINES ONLY]_ [Video]. YouTube [https://youtu.be/-KBS93RlUCY](https://youtu.be/-KBS93RlUCY)
 
-Google Developers. (n.d.). *Get Started with the Google Fonts API.* Google Fonts. [https://developers.google.com/fonts/docs/getting_started](https://developers.google.com/fonts/docs/getting_started)
+Google Developers. (n.d.). _Get Started with the Google Fonts API._ Google Fonts. [https://developers.google.com/fonts/docs/getting_started](https://developers.google.com/fonts/docs/getting_started)
 
-Meta Platforms. (n.d.). *Forms.* React. [https://reactjs.org/docs/forms.html](https://reactjs.org/docs/forms.html)
+Meta Platforms. (n.d.). _Forms._ React. [https://reactjs.org/docs/forms.html](https://reactjs.org/docs/forms.html)
 
-W3Schools. (n.d.). *CSS Gradients.* W3Schools. [https://www.w3schools.com/css/css3_gradients.asp](https://www.w3schools.com/css/css3_gradients.asp)
+W3Schools. (n.d.). _CSS Gradients._ W3Schools. [https://www.w3schools.com/css/css3_gradients.asp](https://www.w3schools.com/css/css3_gradients.asp)
 
-W3Schools. (n.d.). *How To Create a Pill Button.* W3Schools. [https://www.w3schools.com/howto/howto_css_pill_button.asp](https://www.w3schools.com/howto/howto_css_pill_button.asp)
+W3Schools. (n.d.). _How To Create a Pill Button._ W3Schools. [https://www.w3schools.com/howto/howto_css_pill_button.asp](https://www.w3schools.com/howto/howto_css_pill_button.asp)
 
-W3Schools. (n.d.). *HTML Input Types.* W3Schools. [https://www.w3schools.com/html/html_form_input_types.asp](https://www.w3schools.com/html/html_form_input_types.asp)
+W3Schools. (n.d.). _HTML Input Types._ W3Schools. [https://www.w3schools.com/html/html_form_input_types.asp](https://www.w3schools.com/html/html_form_input_types.asp)
 
-W3Schools. (n.d.). *React Forms.* W3Schools. [https://www.w3schools.com/react/react_forms.asp](https://www.w3schools.com/react/react_forms.asp)
+W3Schools. (n.d.). _React Forms._ W3Schools. [https://www.w3schools.com/react/react_forms.asp](https://www.w3schools.com/react/react_forms.asp)
