@@ -8,7 +8,25 @@ function EditMemoryForm() {
   const [formState, setFormState] = useState({memoryText: ''});
   const { memoryText } = formState;
 
-  const [updateMemory, { error }] = useMutation(UPDATE_MEMORY);
+  const [updateMemory, { error }] = useMutation(UPDATE_MEMORY, {
+    update(cache, { data: { updateMemory } }) {
+      try {
+        const { me } = cache.readQuery({ query: QUERY_ME });
+        cache.writeQuery({
+          query: QUERY_ME,
+          data: { me: { ...me, memories: [...me.memories, updateMemory] } },
+        });
+      } catch (e) {
+        console.warn("Memory edited")
+      }
+
+      const { memory } = cache.readQuery({ query: QUERY_MEMORY });
+      cache.writeQuery({
+        query: QUERY_MEMORY,
+        data: { memory: [updateMemory, ...memory] },
+      });
+    }
+  });
 
   function handleChange(e) {
     setFormState({...formState, [e.target.name]: e.target.value})
@@ -16,14 +34,14 @@ function EditMemoryForm() {
 
   console.log(formState);
 
-  const handleSubmit = async event => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const { data } = await updateMemory({
-        variables: { ...formState }
+      await updateMemory({
+        variables: { ...formState },
       });
-      console.log(data);
+
     } catch (e) {
       console.error(e);
     }
