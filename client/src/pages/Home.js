@@ -1,6 +1,6 @@
 import React from "react";
 import History from "../components/History";
-import Memory from "../components/Memory";
+import TodaysUserMemories from "../components/TodaysUserMemories";
 import MemoryInput from "../components/MemoryInput";
 
 import Auth from "../utils/auth";
@@ -28,7 +28,7 @@ const Home = () => {
           <MemoryInput />
           <br />
           <h2>Your Memories for Today</h2>
-          <Memory memory={memory} />
+          <TodaysUserMemories />
           <br />
           <EveryMemory />
           <History />
