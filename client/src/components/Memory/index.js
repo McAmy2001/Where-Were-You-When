@@ -1,23 +1,20 @@
+// import react with useState and useEffect
 import React, { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
+// import QUERY_ME from queries
 const { QUERY_ME } = require("../../utils/queries");
 
-// connect to mutations to add update/edit and delete memory buttons
-// import { useMutation } from "@apollo/client";
-// import { UPDATE_MEMORY, DELETE_MEMORY } from "../../utils/mutations";
-
+// memory function loads all of the user's memories
 function Memory() {
-
   const { loading, error, refetch, data } = useQuery(QUERY_ME);
 
   useEffect(() => {
     refetch();
-  })
+  });
 
   const myMemories = data?.me.memories || [];
-  console.log(myMemories);
-
+  // user message if they don't have any memories created
   if (!myMemories.length) {
     return (
       <h3>
@@ -36,10 +33,11 @@ function Memory() {
         <ul>
           {myMemories.map((memory) => (
             <Link to={`/memory/${memory._id}`}>
-            <li key={memory.index}>
-              My memory of: {memory.memoryMonth}/{memory.memoryDate}/{memory.memoryYear}: <br />
-              {memory.memoryText}
-            </li>
+              <li key={memory.index}>
+                My memory of: {memory.memoryMonth}/{memory.memoryDate}/
+                {memory.memoryYear}: <br />
+                {memory.memoryText}
+              </li>
             </Link>
           ))}
         </ul>

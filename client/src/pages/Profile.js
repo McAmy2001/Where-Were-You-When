@@ -1,15 +1,17 @@
+// import react
 import React from "react";
+// import Navigate and useParams from react-router-dom
 import { Navigate, useParams } from "react-router-dom";
 
+// importing Memory and MemoryInput components to call below
 import Memory from "../components/Memory";
 import MemoryInput from "../components/MemoryInput";
-
 
 // import Queries
 import { useQuery } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
 
-
+// importing Auth to use below to check if users are logged in or not
 import Auth from "../utils/auth";
 
 const Profile = (props) => {
@@ -21,10 +23,9 @@ const Profile = (props) => {
   });
 
   const user = data?.me || data?.user || {};
-  console.log(user);
   const memory = data?.memories || data?.memories || {};
-  console.log(Auth.loggedIn());
 
+  // if user is logged in, returns profile page
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     return <Navigate to="/profile:username" />;
   }
@@ -32,7 +33,7 @@ const Profile = (props) => {
   if (loading) {
     return <div>Loading...</div>;
   }
-
+  // if user is not logged in, they are told they need to log in to see profile page
   if (!user?.username) {
     return (
       <h4>
@@ -57,7 +58,7 @@ const Profile = (props) => {
       <div>
         <div>
           <h2>My Memories</h2>
-          <Memory  />
+          <Memory />
         </div>
       </div>
     </div>

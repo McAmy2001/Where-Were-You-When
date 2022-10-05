@@ -1,5 +1,7 @@
+// import React
 import React from "react";
 
+// Footer function returns footer
 function Footer() {
   return (
     <footer>
