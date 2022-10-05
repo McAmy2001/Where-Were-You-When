@@ -16,14 +16,12 @@ const resolvers = {
       throw new AuthenticationError("Not logged in");
     },
     users: async () => {
-      return User.find()
-        .select('-__v -password')
-        .populate('memories');
+      return User.find().select("-__v -password").populate("memories");
     },
     user: async (parent, { username }) => {
       return User.findOne({ username })
-        .select('-__v -password')
-        .populate('memories');
+        .select("-__v -password")
+        .populate("memories");
     },
     memories: async (parent, { username }) => {
       const params = username ? { username } : {};
@@ -31,12 +29,10 @@ const resolvers = {
     },
     memory: async (parent, { _id }) => {
       return Memory.findOne({ _id });
-
     },
     everyMemory: async () => {
-      console.log('everyMemory called');
       return Memory.find().select("-__v");
-    }
+    },
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -80,19 +76,17 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
     updateMemory: async (parent, args, context) => {
-      if (context.user) 
-      {
+      if (context.user) {
         const updatedMemory = await Memory.findByIdAndUpdate(
-           args._id,
-           {memoryText: args.memoryText},           
-           { new: true }           
-      );
+          args._id,
+          { memoryText: args.memoryText },
+          { new: true }
+        );
 
-      return updatedMemory;
+        return updatedMemory;
       }
 
       throw new AuthenticationError("You need to be logged in!");
-      
     },
     deleteMemory: async (parent, args, context) => {
       if (context.user) {
@@ -103,21 +97,19 @@ const resolvers = {
 
         const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $pull: { memories: memory._id }},
+          { $pull: { memories: memory._id } },
           { new: true }
         );
 
         const memoryDelete = await Memory.findByIdAndDelete({
-          _id: args._id
+          _id: args._id,
         });
         return updatedUser;
 
-        
-
         return updatedUser;
       }
-      throw new AuthenticationError('You need to be logged in!');
-    }
+      throw new AuthenticationError("You need to be logged in!");
+    },
   },
 };
 

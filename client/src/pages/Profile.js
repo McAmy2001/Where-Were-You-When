@@ -4,11 +4,9 @@ import { Navigate, useParams } from "react-router-dom";
 import Memory from "../components/Memory";
 import MemoryInput from "../components/MemoryInput";
 
-
 // import Queries
 import { useQuery } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
-
 
 import Auth from "../utils/auth";
 
@@ -21,9 +19,7 @@ const Profile = (props) => {
   });
 
   const user = data?.me || data?.user || {};
-  console.log(user);
   const memory = data?.memories || data?.memories || {};
-  console.log(Auth.loggedIn());
 
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     return <Navigate to="/profile:username" />;
@@ -57,7 +53,7 @@ const Profile = (props) => {
       <div>
         <div>
           <h2>My Memories</h2>
-          <Memory  />
+          <Memory />
         </div>
       </div>
     </div>

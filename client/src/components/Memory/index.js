@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 const { QUERY_ME } = require("../../utils/queries");
 
@@ -8,15 +8,13 @@ const { QUERY_ME } = require("../../utils/queries");
 // import { UPDATE_MEMORY, DELETE_MEMORY } from "../../utils/mutations";
 
 function Memory() {
-
   const { loading, error, refetch, data } = useQuery(QUERY_ME);
 
   useEffect(() => {
     refetch();
-  })
+  });
 
   const myMemories = data?.me.memories || [];
-  console.log(myMemories);
 
   if (!myMemories.length) {
     return (
@@ -36,10 +34,11 @@ function Memory() {
         <ul>
           {myMemories.map((memory) => (
             <Link to={`/memory/${memory._id}`}>
-            <li key={memory.index}>
-              My memory of: {memory.memoryMonth}/{memory.memoryDate}/{memory.memoryYear}: <br />
-              {memory.memoryText}
-            </li>
+              <li key={memory.index}>
+                My memory of: {memory.memoryMonth}/{memory.memoryDate}/
+                {memory.memoryYear}: <br />
+                {memory.memoryText}
+              </li>
             </Link>
           ))}
         </ul>

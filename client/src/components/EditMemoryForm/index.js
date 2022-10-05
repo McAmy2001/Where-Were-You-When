@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
+import React, { useState } from "react";
+import { useMutation } from "@apollo/client";
 import { UPDATE_MEMORY } from "../../utils/mutations";
 import { QUERY_MEMORY, QUERY_ME } from "../../utils/queries";
 
 function EditMemoryForm() {
-
-  const [formState, setFormState] = useState({memoryText: ''});
+  const [formState, setFormState] = useState({ memoryText: "" });
   const { memoryText } = formState;
 
   const [updateMemory, { error }] = useMutation(UPDATE_MEMORY, {
@@ -17,7 +16,7 @@ function EditMemoryForm() {
           data: { me: { ...me, memories: [...me.memories, updateMemory] } },
         });
       } catch (e) {
-        console.warn("Memory edited")
+        console.warn("Memory edited");
       }
 
       const { memory } = cache.readQuery({ query: QUERY_MEMORY });
@@ -25,14 +24,12 @@ function EditMemoryForm() {
         query: QUERY_MEMORY,
         data: { memory: [updateMemory, ...memory] },
       });
-    }
+    },
   });
 
   function handleChange(e) {
-    setFormState({...formState, [e.target.name]: e.target.value})
+    setFormState({ ...formState, [e.target.name]: e.target.value });
   }
-
-  console.log(formState);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -41,7 +38,6 @@ function EditMemoryForm() {
       await updateMemory({
         variables: { ...formState },
       });
-
     } catch (e) {
       console.error(e);
     }
@@ -50,18 +46,22 @@ function EditMemoryForm() {
   return (
     <div>
       <form onSubmit={handleSubmit} className="form-flex">
-        <label><h4>Edit memory:</h4></label>
-        <textarea 
+        <label>
+          <h4>Edit memory:</h4>
+        </label>
+        <textarea
           className="form-input"
           name="memoryText"
           defaultValue={memoryText}
           onChange={handleChange}
         ></textarea>
-        <button type="submit" className="submit-btn">Save Edited Memory</button>
+        <button type="submit" className="submit-btn">
+          Save Edited Memory
+        </button>
       </form>
       {error && <p>Something went wrong.</p>}
     </div>
-  )
+  );
 }
 
 export default EditMemoryForm;
@@ -99,7 +99,7 @@ export default EditMemoryForm;
 //     <div>
 //       <form onSubmit={handleEditSubmit} className="form-flex">
 //         <label><h4>Edit memory:</h4></label>
-//         <textarea 
+//         <textarea
 //           className="form-input"
 //           name="memoryText"
 //           value={formState.memoryText}
@@ -156,7 +156,7 @@ export default EditMemoryForm;
 //     <div>
 //       <form onSubmit={handleEditClick} className="form-flex">
 //         <label><h4>Edit memory:</h4></label>
-//         <textarea 
+//         <textarea
 //           className="form-input"
 //           name="memoryText"
 //           onChange={(e) =>
