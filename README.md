@@ -29,7 +29,7 @@ Once the repository is cloned, use `npm i` to install the required packages. Use
 
 When the user visits the app for the first time, they can view a list of historical events that happened on the current date and can click the link to learn more.
 
-![Homepage](/client/src/assets/LoggedOutHomepage.png)
+![Homepage](/client/src/assets/LoggedoutHomepage.png)
 
 The user can sign up for an account to record their own memories.
 
