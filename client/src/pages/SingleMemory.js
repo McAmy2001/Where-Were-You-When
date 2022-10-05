@@ -30,7 +30,7 @@ function SingleMemory() {
     } catch (e) {
       console.error(e);
     }
-    navigate("/");
+    navigate("/profile");
   };
 
   if (loading) {

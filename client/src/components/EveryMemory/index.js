@@ -27,6 +27,13 @@ function EveryMemory() {
     return <div>Error: {error.message}</div>;
   } else if (loading) {
     return <div>Loading...</div>;
+  } else if (!sortedTodaysMemories.length) {
+    return (
+      <div>
+        <h2>All Users' Memories For Today</h2>
+        <h3>No User Posted Memories For Today</h3>
+      </div>
+    );
   } else {
     return (
       <div>

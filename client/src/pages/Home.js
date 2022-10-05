@@ -3,7 +3,7 @@ import React from "react";
 
 // importing History, Memory, and MemoryInput components to use below
 import History from "../components/History";
-import Memory from "../components/Memory";
+import TodaysUserMemories from "../components/TodaysUserMemories";
 import MemoryInput from "../components/MemoryInput";
 
 // importing Auth to use below to check if users are logged in or not
@@ -38,7 +38,7 @@ const Home = () => {
           <MemoryInput />
           <br />
           <h2>Your Memories for Today</h2>
-          <Memory memory={memory} />
+          <TodaysUserMemories />
           <br />
           <EveryMemory />
           <History />
