@@ -9,7 +9,11 @@ const { QUERY_ME } = require("../../utils/queries");
 
 function Memory() {
 
-  const { loading, error, data } = useQuery(QUERY_ME);
+  const { loading, error, refetch, data } = useQuery(QUERY_ME);
+
+  useEffect(() => {
+    refetch();
+  })
 
   const myMemories = data?.me.memories || [];
   console.log(myMemories);
