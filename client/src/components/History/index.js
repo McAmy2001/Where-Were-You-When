@@ -31,8 +31,7 @@ function History() {
         <ul>
           {items.data.Events.map(item => (
             <li key={item.index}>
-              {item.year} {item.text}<br />
-             <a href={item.links[0].link} target="_blank" rel="noopener norefferrer">{item.links[0].link}</a><br />
+              {item.year} {item.text} <a href={item.links[0].link} target="_blank" rel="noopener norefferrer">Learn more.</a><br />
             </li>
           ))}
           <br />
