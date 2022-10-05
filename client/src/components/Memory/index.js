@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import { useQuery } from "@apollo/client";
 const { QUERY_ME } = require("../../utils/queries");
@@ -9,7 +9,11 @@ const { QUERY_ME } = require("../../utils/queries");
 
 function Memory() {
 
-  const { loading, error, data } = useQuery(QUERY_ME);
+  const { loading, error, refetch, data } = useQuery(QUERY_ME);
+
+  useEffect(() => {
+    refetch();
+  })
 
   const myMemories = data?.me.memories || [];
   console.log(myMemories);

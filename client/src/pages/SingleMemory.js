@@ -1,11 +1,13 @@
 import React from 'react';
 import { useQuery, useMutation } from '@apollo/client';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { QUERY_MEMORY } from '../utils/queries';
 import { DELETE_MEMORY } from '../utils/mutations';
 import EditMemoryForm from '../components/EditMemoryForm';
 
 function SingleMemory() {
+
+  const navigate = useNavigate();
 
   const { id: memoryId } = useParams();
   console.log(memoryId);
@@ -28,7 +30,8 @@ function SingleMemory() {
     catch (e) {
       console.error(e);
     }
-    document.referrer ? window.location = document.referrer : window.history.back()
+   navigate('/');
+
   };
 
   if (loading) {

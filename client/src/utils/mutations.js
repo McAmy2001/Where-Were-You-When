@@ -49,7 +49,7 @@ export const ADD_MEMORY = gql`
 
 export const UPDATE_MEMORY = gql`
   mutation updateMemory($_id: ID!, $memoryText: String!) {
-    updateMemory(_id: $id, memoryText: $memoryText) {
+    updateMemory(_id: $_id, memoryText: $memoryText) {
       _id
       username
       memoryYear
