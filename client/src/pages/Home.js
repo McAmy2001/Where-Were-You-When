@@ -17,7 +17,7 @@ const Home = () => {
   const loggedIn = Auth.loggedIn();
 
   return (
-    <main>
+    <main className="page-view">
       {!loggedIn && (
         <div>
           <History />
@@ -26,7 +26,10 @@ const Home = () => {
       {loggedIn ? (
         <div>
           <MemoryInput />
+          <br />
+          <h2>Your Memories for Today</h2>
           <Memory memory={memory} />
+          <br />
           <EveryMemory />
           <History />
         </div>

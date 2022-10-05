@@ -16,7 +16,7 @@ const MemoryInput = () => {
     update(cache, { data: { addMemory } }) {
       try {
         const { me } = cache.readQuery({ query: QUERY_ME });
-        console.log(me);
+
         cache.writeQuery({
           query: QUERY_ME,
           data: { me: { ...me, memories: [...me.memories, addMemory] } },
@@ -37,7 +37,7 @@ const MemoryInput = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(memoryText, memoryYear);
+
     try {
       const { data } = await addMemory({
         variables: { memoryMonth, memoryDate, memoryYear, memoryText },
