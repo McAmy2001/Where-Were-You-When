@@ -27,17 +27,25 @@ Once the repository is cloned, use `npm i` to install the required packages. Use
 
 ## Usage
 
-When the user visits the app for the first time, they can view a list of historical events that happened on the same date it is.
+When the user visits the app for the first time, they can view a list of historical events that happened on the current date and can click the link to learn more.
 
 ![Homepage](/client/src/assets/LoggedOutHomepage.png)
 
 The user can sign up for an account to record their own memories.
 
-![Sign Up Page](/client/src/assets/SignUpForm.png)
+![Sign Up Page](/client/src/assets/SignUp.png)
 
-Once the user logs in, they can record their own memories. The user can also view all of their past memories, and they can view a feed of memories that corresponds with the current day.
+Once the user logs in, they can record their own memories.
 
-![Profile Page](/client/src/assets/LoggedInProfilePage.png)
+![Login Page](/client/src/assets/Login.png)
+
+The user can also view all of their past memories on their profile page.
+
+![Profile Page](/client/src/assets/ProfilePage.png)
+
+Users can also view a feed of memories that corresponds with the current day.
+
+![Homepage view for logged in user](/client/src/assets/LoggedInHomepage.png)
 
 ## Technologies
 
