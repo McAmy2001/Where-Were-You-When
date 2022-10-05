@@ -37,7 +37,7 @@ function History() {
           ))}
           <br />
         </ul>
-        <h5>On this day events from: https://history.muffinlabs.com/#api</h5>
+        <h5 className="api-reference">On this day events from <a href="https://history.muffinlabs.com/#api" target="_blank">history.muffinlabs.com/#api</a>.</h5>
       </div>
     );
   }
