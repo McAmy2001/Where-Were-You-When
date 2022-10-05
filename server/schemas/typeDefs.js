@@ -1,5 +1,6 @@
 const { gql } = require("apollo-server-express");
 
+// creates the typeDefs for User, Memory, Auth, Query, and Mutation
 const typeDefs = gql`
   type User {
     _id: ID
@@ -27,22 +28,23 @@ const typeDefs = gql`
     users: [User]
     user(username: String!): User
     memories(username: String): [Memory]
-    memory(_id:ID!): Memory
+    memory(_id: ID!): Memory
     everyMemory: [Memory]
   }
-  
+
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addMemory(
-      memoryMonth: Int,
-      memoryDate: Int,
-      memoryYear: Int,
-      memoryText: String!,
+      memoryMonth: Int
+      memoryDate: Int
+      memoryYear: Int
+      memoryText: String!
     ): Memory
     updateMemory(_id: ID!, memoryText: String!): Memory
     deleteMemory(_id: ID!): Memory
   }
 `;
 
+// exports the typeDefs for access in other files
 module.exports = typeDefs;

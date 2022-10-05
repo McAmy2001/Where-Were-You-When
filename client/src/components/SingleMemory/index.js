@@ -1,10 +1,14 @@
+// import React
 import React from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
+// importing QUERY_MEMORY from queries to use below
 import { QUERY_MEMORY } from "../utils/queries";
+// importing DELETE_MEMORY from mutations to use below
 import { DELETE_MEMORY } from "../utils/mutations";
+// importing EditMemoryForm component to use below
 import EditMemoryForm from "../components/EditMemoryForm";
-
+// single memory function renders one memory by Id
 function SingleMemory() {
   const { state } = useLocation();
 

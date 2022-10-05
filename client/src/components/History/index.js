@@ -1,3 +1,4 @@
+// import react with useState and useEffect
 import React, { useState, useEffect } from "react";
 
 function History() {
@@ -5,6 +6,7 @@ function History() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
 
+  // uses useEffect to fetch data from api
   useEffect(() => {
     fetch("https://history.muffinlabs.com/date")
       .then((res) => res.json())
@@ -19,7 +21,7 @@ function History() {
         }
       );
   }, []);
-
+  // catches error if the data doesn't render
   if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {

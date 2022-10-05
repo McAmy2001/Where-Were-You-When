@@ -1,7 +1,10 @@
+// import React
 import React from "react";
 import { useQuery } from "@apollo/client";
+// import QUERY_EVERYMEMORY from queries
 const { QUERY_EVERYMEMORY } = require("../../utils/queries");
 
+// EveryMemory function returns all memories for all users
 function EveryMemory() {
   const { loading, error, data } = useQuery(QUERY_EVERYMEMORY);
 

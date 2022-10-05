@@ -1,3 +1,4 @@
+// using faker to seed database
 const { faker } = require("@faker-js/faker");
 
 const db = require("../config/connection");

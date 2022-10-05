@@ -1,8 +1,12 @@
+// import react with useState
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
+// import UPDATE_MEMORY from mutations
 import { UPDATE_MEMORY } from "../../utils/mutations";
+// import QUERY_ME and QUERY_MEMORY from queries
 import { QUERY_MEMORY, QUERY_ME } from "../../utils/queries";
 
+// EditMemoryForm uses useState to allow users to edit memory text input and update a single memory
 function EditMemoryForm() {
   const [formState, setFormState] = useState({ memoryText: "" });
   const { memoryText } = formState;
