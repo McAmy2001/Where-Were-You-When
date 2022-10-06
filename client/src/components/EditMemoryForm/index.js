@@ -47,7 +47,7 @@ function EditMemoryForm(memory) {
           Save Edited Memory
         </button>
       </form>
-      {error && <p>Something went wrong.</p>}
+      {error && <p></p>}
     </div>
   );
 }

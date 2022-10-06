@@ -3,10 +3,6 @@ import { Link } from 'react-router-dom';
 import { useQuery } from "@apollo/client";
 const { QUERY_ME } = require("../../utils/queries");
 
-// connect to mutations to add update/edit and delete memory buttons
-// import { useMutation } from "@apollo/client";
-// import { UPDATE_MEMORY, DELETE_MEMORY } from "../../utils/mutations";
-
 function TodaysUserMemories() {
 
   const { loading, error, refetch, data } = useQuery(QUERY_ME);
@@ -49,7 +45,7 @@ function TodaysUserMemories() {
           {todaysMyMemories.map((memory) => (
             <Link to={`/memory/${memory._id}`}>
             <li key={memory.index}>
-              My memory of: {memory.memoryMonth}/{memory.memoryDate}/{memory.memoryYear}: <br />
+              My memory of {memory.memoryMonth}/{memory.memoryDate}/{memory.memoryYear}: <br />
               {memory.memoryText}
             </li>
             </Link>
