@@ -1,7 +1,9 @@
-const mongoose = require('mongoose');
+// Setting up mongoose connection
+const mongoose = require("mongoose");
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/where-were-you-when', {
-  
-});
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/where-were-you-when",
+  {}
+);
 
 module.exports = mongoose.connection;

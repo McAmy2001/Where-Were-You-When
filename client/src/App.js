@@ -1,3 +1,4 @@
+// importing react and useState
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
@@ -9,14 +10,16 @@ import {
 import { setContext } from "@apollo/client/link/context";
 
 import "./App.css";
+
+// importing Header, Footer, Home, Login, Signup, Profile, NoMatch, and SingleMemory components so they can be called/returned below
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import NoMatch from "./pages/NoMatch";
+import SingleMemory from "./pages/SingleMemory";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -37,6 +40,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+// App function returning components using Route for pages
 function App() {
   return (
     <ApolloProvider client={client}>
@@ -53,6 +57,7 @@ function App() {
                 <Route path=":username" element={<Profile />} />
                 <Route path="" element={<Profile />} />
               </Route>
+              <Route path="/memory/:id" element={<SingleMemory />} />
               <Route path="*" element={<NoMatch />} />
             </Routes>
           </div>
@@ -64,4 +69,5 @@ function App() {
   );
 }
 
+// explorting App function
 export default App;

@@ -1,8 +1,11 @@
+// import React with useState
 import React, { useState } from "react";
 
 import { useMutation } from "@apollo/client";
+// importing ADD_USER from mutations to use below
 import { ADD_USER } from "../utils/mutations";
 
+// importing Auth to use below to check if users are logged in or not
 import Auth from "../utils/auth";
 
 const Signup = () => {
@@ -14,6 +17,7 @@ const Signup = () => {
 
   const [addUser, { error }] = useMutation(ADD_USER);
 
+  // when input changes, updates state
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -23,6 +27,7 @@ const Signup = () => {
     });
   };
 
+  // handleFormSubmit submits the form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -30,7 +35,7 @@ const Signup = () => {
       const { data } = await addUser({
         variables: { ...formState },
       });
-
+      // ensures user is logged in after sign up
       Auth.login(data.addUser.token);
     } catch (e) {
       console.error(e);
@@ -39,8 +44,7 @@ const Signup = () => {
 
   return (
     <main>
-      <div>
-
+      <div className="page-view">
         <div className="signup">
           <h2>Create an Account</h2>
 

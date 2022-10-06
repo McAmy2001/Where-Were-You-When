@@ -1,3 +1,4 @@
+// imports jwt-decode for use below
 import decode from "jwt-decode";
 
 class AuthService {
@@ -6,10 +7,11 @@ class AuthService {
   }
 
   loggedIn() {
+    // check to see if there is a valid saved token before logging in
     const token = this.getToken();
     return !!token && !this.isTokenExpired(token);
   }
-
+  // checks if toek is expired
   isTokenExpired(token) {
     try {
       const decoded = decode(token);
@@ -20,17 +22,18 @@ class AuthService {
       return false;
     }
   }
-
+  // get token from local storage
   getToken() {
     return localStorage.getItem("id_token");
   }
 
+  // when user logs in, save user token to localStorage
   login(idToken) {
     localStorage.setItem("id_token", idToken);
 
     window.location.assign("/");
   }
-
+  // when user logs out, clears user token and other data from localStorage
   logout() {
     localStorage.removeItem("id_token");
     window.location.assign("/");

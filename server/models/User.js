@@ -1,6 +1,8 @@
 const { Schema, model } = require("mongoose");
+// requireing bcrypt for hashing user password
 const bcrypt = require("bcrypt");
 
+// setting up new schema for user model
 const UserSchema = new Schema({
   username: {
     type: String,
@@ -19,7 +21,7 @@ const UserSchema = new Schema({
     required: true,
     minLength: 5,
   },
-  memory: [
+  memories: [
     {
       type: Schema.Types.ObjectId,
       ref: "Memory",
@@ -36,10 +38,12 @@ UserSchema.pre("save", async function (next) {
   next();
 });
 
+// comparing inputed password with hashed password
 UserSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
 const User = model("User", UserSchema);
 
+// exporting User model so it can be used elsewhere
 module.exports = User;
