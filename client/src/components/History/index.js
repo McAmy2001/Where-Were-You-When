@@ -12,6 +12,8 @@ function History() {
       .then((res) => res.json())
       .then(
         (result) => {
+          console.log(result);
+          console.log(result.data.Events[0].links[0].link);
           setIsLoaded(true);
           setItems(result);
         },
@@ -27,20 +29,24 @@ function History() {
   } else if (!isLoaded) {
     return <div>Loading...</div>;
   } else {
+    console.log('Here I am');
+    console.log(items.data.Events[0].links[0].link);
+    
     return (
       <div className="history">
         <h2>On This Day...</h2>
         <ul>
           {items.data.Events.map((item) => (
             <li key={item.index}>
-              {item.year} {item.text}{" "}
+              {item.year} {item.text} {" "}
+              {item.links[0] && 
               <a
                 href={item.links[0].link}
                 target="_blank"
-                rel="noopener norefferrer"
+                rel="noopener noreferrer"
               >
                 Learn more.
-              </a>
+              </a> }
               <br />
             </li>
           ))}
