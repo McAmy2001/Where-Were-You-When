@@ -6,8 +6,6 @@
 
 Where Were You When is a MERN stack, single page application that allows a user to record and save their memories. The user can view their own past memories and will be reminded of a memory on the same date that they are using the application.
 
-View the deployed application at [https://where-were-you-when.herokuapp.com/](https://where-were-you-when.herokuapp.com/).
-
 ## Table of Contents
 
 - [Installation](#installation)
